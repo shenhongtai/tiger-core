@@ -40,9 +40,27 @@ public class StringUtil {
 			"oracle.sql.BLOB", "oracle.sql.CLOB" };
     
 	/**
+	 * 统计字符串中子字符串出现次数
+	 * @param str
+	 * @param substr
+	 * @return
+	 */
+	public static int containsCount(String str, String substr) {
+		int count = 0;
+		if (ValidateUtil.isNotBlank(str) && ValidateUtil.isNotBlank(substr)) {
+	        while (str.indexOf(substr) != -1) {
+	        	count++;
+	        	str = str.substring(str.indexOf(substr) + substr.length());
+	        }
+		}	    
+		return count;
+	}
+
+	/**
 	 * 读取配置文件
-	 * 
-	 * @author ShenHongtai
+	 * @param filePath
+	 * @param key
+	 * @return
 	 */
 	public static String getProperty(String filePath, String key) {
 		Properties properties = new Properties();
@@ -60,8 +78,9 @@ public class StringUtil {
 	
 	/**
 	 * String转Blob
-	 * 
-	 * @author ShenHongtai
+	 * @param str
+	 * @param conn
+	 * @return
 	 */
 	public static Blob stringToBlob(String str, Connection conn) {
 		Blob blob = null;
@@ -77,8 +96,8 @@ public class StringUtil {
 
 	/**
 	 * 字符串单引号替换成双引号
-	 * 
-	 * @author ShenHongtai
+	 * @param str
+	 * @return
 	 */
 	public static String filtSingleQuotes(String str) {
 		String result = null;
@@ -88,8 +107,9 @@ public class StringUtil {
 
 	/**
 	 * 数组是否存在字符串
-	 * 
-	 * @author ShenHongtai
+	 * @param str
+	 * @param strArr
+	 * @return
 	 */
 	public static boolean stringInArray(String str, String[] strArr) {
 		for (int i = 0; i < strArr.length; i++) {
@@ -102,8 +122,9 @@ public class StringUtil {
 
 	/**
 	 * 结果集转JSON
-	 * 
-	 * @author ShenHongtai
+	 * @param rs
+	 * @return
+	 * @throws SQLException
 	 */
 	public static String rsToJsonString(ResultSet rs) throws SQLException {
 		return listToJsonString(rsToList(rs));
@@ -111,8 +132,9 @@ public class StringUtil {
 
 	/**
 	 * 结果集转JSONArray
-	 * 
-	 * @author ShenHongtai
+	 * @param rs
+	 * @return
+	 * @throws SQLException
 	 */
 	public static JSONArray rsToJson(ResultSet rs) throws SQLException {
 		return listToJson(rsToList(rs));
@@ -120,36 +142,34 @@ public class StringUtil {
 
 	/**
 	 * List转JSONArray
-	 * 
-	 * @author ShenHongtai
+	 * @param list
+	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
-	public static JSONArray listToJson(List list) {
+	public static JSONArray listToJson(List<Object> list) {
 		return JSONArray.parseArray(JSON.toJSONString(list));
 	}
 
 	/**
 	 * List转JSONString
-	 * 
-	 * @author ShenHongtai
+	 * @param list
+	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
-	public static String listToJsonString(List list) {
+	public static String listToJsonString(List<Object> list) {
 		return JSON.toJSONString(list);
 	}
 
 	/**
 	 * 结果集转List
-	 * 
-	 * @author ShenHongtai
+	 * @param rs
+	 * @return
+	 * @throws SQLException
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static List rsToList(ResultSet rs) throws SQLException {
-		List list = new ArrayList();
+	public static List<Object> rsToList(ResultSet rs) throws SQLException {
+		List<Object> list = new ArrayList<Object>();
 		ResultSetMetaData md = rs.getMetaData();
 		int columnCount = md.getColumnCount();
 		while (rs.next()) {
-			Map rowData = new HashMap(columnCount);
+			Map<String, Object> rowData = new HashMap<>(columnCount);
 			for (int i = 1; i <= columnCount; i++) {
 				rowData.put(md.getColumnName(i), rs.getObject(i));
 			}
@@ -160,8 +180,8 @@ public class StringUtil {
 
 	/**
 	 * MD5加密
-	 * 
-	 * @author ShenHongtai
+	 * @param data
+	 * @return
 	 */
 	public static String encodeMD5(String data) {
 		return DigestUtils.md5Hex(data);
@@ -169,8 +189,8 @@ public class StringUtil {
 	
 	/**
 	 * 是否Image类型列
-	 * 
-	 * @author ShenHongtai
+	 * @param strClsName
+	 * @return
 	 */
 	public static boolean isImageColumn(String strClsName) {
 		int i = 0;
@@ -184,8 +204,8 @@ public class StringUtil {
 
 	/**
 	 * 清除字符串空格
-	 * 
-	 * @author ShenHongtai
+	 * @param data
+	 * @return
 	 */
 	public static String clearSpace(String data) {
 		String re = "";
@@ -199,8 +219,9 @@ public class StringUtil {
 
 	/**
 	 * 清除字符串指定字符
-	 * 
-	 * @author ShenHongtai
+	 * @param data
+	 * @param chars
+	 * @return
 	 */
 	public static String clearChar(String data, String chars) {
 		String re = "";
@@ -214,8 +235,9 @@ public class StringUtil {
 
 	/**
 	 * 将字符串数组用标识连接为字符串
-	 * 
-	 * @author ShenHongtai
+	 * @param stringArray
+	 * @param symbol
+	 * @return
 	 */
 	public static String convertStringArrayToStringBySymbol(String[] stringArray, char symbol) {
 		StringBuffer sb = new StringBuffer();
@@ -228,12 +250,12 @@ public class StringUtil {
 
 	/**
 	 * 将字符串用标识分隔为字符串数组
-	 * 
-	 * @author ShenHongtai
+	 * @param string
+	 * @param symbol
+	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
 	public static String[] convertStringToStringArrayBySymbol(String string, String symbol) {
-		Vector stringVector = convertStringToStringVectorBySymbol(string, symbol);
+		Vector<Object> stringVector = convertStringToStringVectorBySymbol(string, symbol);
 		String[] stringArray = new String[stringVector.size()];
 		for (int i = 0; i < stringVector.size(); i++) {
 			stringArray[i] = ((String) stringVector.elementAt(i));
@@ -243,13 +265,13 @@ public class StringUtil {
 
 	/**
 	 * 将字符串用标识分隔为Vector数组
-	 * 
-	 * @author ShenHongtai
+	 * @param string
+	 * @param symbol
+	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static Vector convertStringToStringVectorBySymbol(String string, String symbol) {
+	public static Vector<Object> convertStringToStringVectorBySymbol(String string, String symbol) {
 		StringTokenizer st = new StringTokenizer(string, symbol, true);
-		Vector stringVector = new Vector();
+		Vector<Object> stringVector = new Vector<>();
 		while (st.hasMoreElements()) {
 			stringVector.addElement(st.nextElement());
 		}
@@ -258,11 +280,11 @@ public class StringUtil {
 
 	/**
 	 * 将Vector数组用标识连接为字符串
-	 * 
-	 * @author ShenHongtai
+	 * @param stringVector
+	 * @param symbol
+	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
-	public static String convertStringVectorToStringBySymbol(Vector stringVector, String symbol) {
+	public static String convertStringVectorToStringBySymbol(Vector<Object> stringVector, String symbol) {
 		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < stringVector.size(); i++) {
 			sb.append(stringVector.elementAt(i));
@@ -273,8 +295,8 @@ public class StringUtil {
 
 	/**
 	 * 金额格式化
-	 * 
-	 * @author ShenHongtai
+	 * @param value
+	 * @return
 	 */
 	public static String defaultFormat(double value) {
 		double min = 0.01;
@@ -287,8 +309,10 @@ public class StringUtil {
 
 	/**
 	 * 指定位置填充字符串
-	 * 
-	 * @author ShenHongtai
+	 * @param psStr
+	 * @param psC
+	 * @param psLen
+	 * @return
 	 */
 	public static String fillString(String psStr, char psC, int psLen) {
 		if (psStr.length() > psLen) {
@@ -305,8 +329,8 @@ public class StringUtil {
 
 	/**
 	 * GBK转码为Unicode
-	 * 
-	 * @author ShenHongtai
+	 * @param original
+	 * @return
 	 */
 	public static String convertGBKToUnicode(String original) {
 		if (original != null) {
@@ -322,8 +346,8 @@ public class StringUtil {
 
 	/**
 	 * Unicode转码为GBK
-	 * 
-	 * @author ShenHongtai
+	 * @param original
+	 * @return
 	 */
 	public static String convertUnicodeToGBK(String original) {
 		if (original != null) {
@@ -338,59 +362,9 @@ public class StringUtil {
 	}
 
 	/**
-	 * 是否包含字符串
-	 * 
-	 * @author ShenHongtai
-	 */
-	public static boolean isIncludeString(String string, String aim) {
-		return string.indexOf(aim) >= 0;
-	}
-
-	/**
-	 * 替换字符串
-	 * 
-	 * @author ShenHongtai
-	 */
-	public static String replace(String psStr, String psS, String psD) {
-		int viPos = psStr.indexOf(psS);
-		if (viPos < 0) {
-			return psStr;
-		}
-		int viLength = psS.length();
-		StringBuffer vsValue = new StringBuffer();
-		while (viPos >= 0) {
-			vsValue.append(psStr.substring(0, viPos));
-			vsValue.append(psD);
-			psStr = psStr.substring(viPos + viLength);
-			viPos = psStr.indexOf(psS);
-		}
-		vsValue.append(psStr);
-		return vsValue.toString();
-	}
-
-	/**
-	 * 分隔字符串
-	 * 
-	 * @author ShenHongtai
-	 */
-	public static String[] splitStringBySymbol(String vsStr, String symbol) {
-		String[] vsString = { "", "" };
-
-		int viPos1 = vsStr.indexOf(symbol);
-		if (viPos1 < 0) {
-			vsString[0] = vsStr;
-			vsString[1] = "";
-			return vsString;
-		}
-		vsString[0] = vsStr.substring(0, viPos1);
-		vsString[1] = vsStr.substring(viPos1 + symbol.length(), vsStr.length());
-		return vsString;
-	}
-
-	/**
 	 * 数据解压缩
-	 * 
-	 * @author ShenHongtai
+	 * @param pBytesInput
+	 * @return
 	 */
 	public static byte[] unZipBytes(byte[] pBytesInput) {
 		ByteArrayInputStream pBytesIn = new ByteArrayInputStream(pBytesInput);
@@ -423,8 +397,8 @@ public class StringUtil {
 
 	/**
 	 * 数据压缩
-	 * 
-	 * @author ShenHongtai
+	 * @param pBytesInput
+	 * @return
 	 */
 	public static byte[] zipBytes(byte[] pBytesInput) {
 		ByteArrayOutputStream pBytesOut = new ByteArrayOutputStream();
@@ -461,8 +435,8 @@ public class StringUtil {
 
 	/**
 	 * Base64转为Bytes
-	 * 
-	 * @author ShenHongtai
+	 * @param pText
+	 * @return
 	 */
 	public static byte[] t2B(String pText) {
 		return Base64.getUrlDecoder().decode(pText);
@@ -470,8 +444,8 @@ public class StringUtil {
 
 	/**
 	 * Bytes转为Base64
-	 * 
-	 * @author ShenHongtai
+	 * @param pBytes
+	 * @return
 	 */
 	public static String b2T(byte[] pBytes) {
 		return Base64.getEncoder().encodeToString(pBytes);
@@ -479,8 +453,7 @@ public class StringUtil {
 
 	/**
 	 * 生成32位随机码
-	 * 
-	 * @author ShenHongtai
+	 * @return
 	 */
 	public static String createUUID() {
 		return UUID.randomUUID().toString().replace("-", "").toUpperCase();

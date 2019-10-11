@@ -6,6 +6,67 @@ package cn.imtiger.util.data;
  * @date 2019-10-10
  */
 public class ValidateUtil {
+
+	/**
+	 * 校验小时数是否合法
+	 * @param value
+	 * @return
+	 */
+	public static boolean isValidHour(String value) {
+		if (isNumeric(value)) {
+			return isValidHour(Integer.parseInt(value));
+		}
+		return false;
+	}
+
+	/**
+	 * 校验小时数是否合法
+	 * @param value
+	 * @return
+	 */
+	public static boolean isValidHour(int value) {
+		return value >= 0 && value <= 23;
+	}
+	
+	/**
+	 * 校验分钟数是否合法
+	 * @param value
+	 * @return
+	 */
+	public static boolean isValidMinute(int value) {
+		return isValidSecond(value);
+	}
+
+	/**
+	 * 校验分钟数是否合法
+	 * @param value
+	 * @return
+	 */
+	public static boolean isValidMinute(String value) {
+		return isValidSecond(value);
+	}
+
+	/**
+	 * 校验秒数是否合法
+	 * @param value
+	 * @return
+	 */
+	public static boolean isValidSecond(String value) {
+		if (isNumeric(value)) {
+			return isValidSecond(Integer.parseInt(value));
+		}
+		return false;
+	}
+
+	/**
+	 * 校验秒数是否合法
+	 * @param value
+	 * @return
+	 */
+	public static boolean isValidSecond(int value) {
+		return value >= 0 && value <= 59;
+	}
+	
     /**
      * 校验字符串不为空
      * @param value
@@ -25,11 +86,20 @@ public class ValidateUtil {
     }
     
     /**
-     * 校验字符数组为空
+     * 校验数组不为空
      * @param value
      * @return
      */
-    public static boolean isNull(String[] value) {
+    public static boolean isNotNull(Object[] value) {
+    	return !isNull(value);
+    }
+        
+    /**
+     * 校验数组为空
+     * @param value
+     * @return
+     */
+    public static boolean isNull(Object[] value) {
     	return value == null || value.length == 0;
     }
     
@@ -59,6 +129,70 @@ public class ValidateUtil {
         }
         return true;
     }
+	
+	/**
+	 * 校验字符串是否为纯字母
+	 * @param str
+	 * @return
+	 */
+	public static boolean isLetter(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return false;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isLetter(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
+    }
+	
+	/**
+	 * 校验字符串是否为纯字母
+	 * @param str
+	 * @return
+	 */
+	public static boolean isLetter(String[] str) {
+		for (int i = 0; i < str.length; i++) {
+			if (!isLetter(str[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * 校验字符串是否为纯数字
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNumeric(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return false;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isDigit(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
+    }
+	
+	/**
+	 * 校验字符串是否为纯数字
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNumeric(String[] str) {
+		for (int i = 0; i < str.length; i++) {
+			if (!isNumeric(str[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
 
     /**
      * 校验字符串是否为邮箱格式

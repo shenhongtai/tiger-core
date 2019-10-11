@@ -147,7 +147,7 @@ public class SQLUtil {
 		sqls = "select top ___TOP_NUM___ __TEMP_ORDER_BY_COLUMN__=0, " + sqls.substring(6);
 		String sqlserver = formatLimitString
 				.format(new String[] { "ORDER BY __TEMP_ORDER_BY_COLUMN__", sqls, start + "" });
-		sqlserver = StringUtil.replace(sqlserver, "___TOP_NUM___", (pageSize + start) + "");
+		sqlserver = sqlserver.replace("___TOP_NUM___", (pageSize + start) + "");
 		sql.append(sqlserver);
 	}
 
