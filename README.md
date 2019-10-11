@@ -1,9 +1,9 @@
 # tiger-core
 ## 1.0.0
-### 新特性
-- 整理并增补应用所需的公共依赖
-- 整理并增补原有实用工具类包cn.imtiger.util
-- 增加公共控制器包cn.imtiger.controller及相关代码
-- 增加公共常量类包cn.imtiger.constant及相关代码
-- 增加公共实体类包cn.imtiger.entity及相关代码
-- 增加定时任务组件包cn.imtiger.task及相关代码
+### New Features
+- Organized and supplemented necessary common dependencies
+- Organized and supplemented old util package: cn.imtiger.util
+- Added common controller package and some code: cn.imtiger.controller
+- Added common constant package and some code: cn.imtiger.constant
+- Added common entity package and some code: cn.imtiger.entity
+- Added timed task component and package: cn.imtiger.task
