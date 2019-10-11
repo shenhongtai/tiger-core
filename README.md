@@ -1,2 +1,9 @@
 # tiger-core
-Core programs for Tiger's soft
+## 1.0.0
+### 新特性
+- 整理并增补应用所需的公共依赖
+- 整理并增补原有实用工具类包cn.imtiger.util
+- 增加公共控制器包cn.imtiger.controller及相关代码
+- 增加公共常量类包cn.imtiger.constant及相关代码
+- 增加公共实体类包cn.imtiger.entity及相关代码
+- 增加定时任务组件包cn.imtiger.task及相关代码
