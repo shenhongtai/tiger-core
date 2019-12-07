@@ -8,3 +8,4 @@
 - Added common constant package and some code: cn.imtiger.constant
 - Added common entity package and some code: cn.imtiger.entity
 - Added timed task component and package: cn.imtiger.task
+- Added SAML service package and code: cn.imtiger.saml 
