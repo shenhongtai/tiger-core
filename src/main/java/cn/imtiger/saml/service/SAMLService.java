@@ -42,5 +42,5 @@ public interface SAMLService {
 	 * @param encodedResponse SAML·µ»Ø±¨ÎÄ
 	 * @return
 	 */
-	public SAMLResponseBean resolveSAMLResponse(String encodedResponse);
+	public SAMLResponseBean resolveSAMLResponse(String encodedResponse) throws Exception;
 }

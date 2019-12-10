@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.security.Security;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.xml.namespace.QName;
 
@@ -175,7 +176,7 @@ public class SAMLServiceImpl implements SAMLService {
 	}
 
 	@Override
-	public SAMLResponseBean resolveSAMLResponse(String encodedResponse) {
+	public SAMLResponseBean resolveSAMLResponse(String encodedResponse) throws Exception {
 		SAMLResponseBean samlResponseInfo = null;
 		if (logger.isDebugEnabled()) {
 			logger.debug("resolveSAMLResponseBase64=" + encodedResponse);
@@ -185,6 +186,12 @@ public class SAMLServiceImpl implements SAMLService {
 			samlResponseInfo = new SAMLResponseBean(response);
 			if (logger.isDebugEnabled()) {
 				logger.debug("samlResponseInfo=" + samlResponseInfo.toString());
+			}
+			Long now = new Date().getTime();
+			Long endTime = samlResponseInfo.getNotOnOrAfter().getTime();
+			Long startTime = samlResponseInfo.getIssueInstant().getTime();
+			if (now < startTime || now >= endTime) {
+				throw new Exception("不在断言消费有效期内，请确认系统时间是否正确");
 			}
 		}
 		return samlResponseInfo;
