@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Tokenå·¥å…·ç±»
+ * Token¹¤¾ßÀà
  * @author shen_hongtai
  * @date 2019-9-18
  */
