@@ -22,7 +22,7 @@ public class StatusConst {
 	/**
 	 * Ê§°Ü
 	 */
-	public static final String FAIL = "0";
+	public static final String FAILURE = "0";
 	/**
 	 * ´íÎó
 	 */
