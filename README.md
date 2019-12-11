@@ -8,4 +8,6 @@
 - Added common constant package and some code: cn.imtiger.constant
 - Added common entity package and some code: cn.imtiger.entity
 - Added timed task component and package: cn.imtiger.task
-- Added SAML service package and code: cn.imtiger.saml 
+- Added SAML service package and code: cn.imtiger.saml
+- Added common filter package: cn.imtiger.filter, and a security filter
+- Added common data access object package with code: cn.imtiger.dao 
