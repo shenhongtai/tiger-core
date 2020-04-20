@@ -1,4 +1,4 @@
-package cn.imtiger.dao;
+ï»¿package cn.imtiger.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
- * JDBCÍ¨ÓÃÊı¾İ·ÃÎÊ²ã
+ * JDBCé€šç”¨æ•°æ®è®¿é—®å±‚
  * @author shen_hongtai
  * @date 2019-12-11
  */

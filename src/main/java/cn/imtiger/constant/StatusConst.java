@@ -1,39 +1,39 @@
-package cn.imtiger.constant;
+ï»¿package cn.imtiger.constant;
 
 /**
- * ×´Ì¬³£Á¿
+ * çŠ¶æ€å¸¸é‡
  * @author shen_hongtai
  * @date 2019-9-19
  */
 public class StatusConst {
 	/**
-	 * Õı³£
+	 * æ­£å¸¸
 	 */
 	public static final String ENABLE = "1";
 	/**
-	 * ½ûÓÃ
+	 * ç¦ç”¨
 	 */
 	public static final String DISABLE = "0";
 	
 	/**
-	 * ³É¹¦
+	 * æˆåŠŸ
 	 */
 	public static final String SUCCESS = "1";
 	/**
-	 * Ê§°Ü
+	 * å¤±è´¥
 	 */
 	public static final String FAILURE = "0";
 	/**
-	 * ´íÎó
+	 * é”™è¯¯
 	 */
 	public static final String ERROR = "-1";
 	
 	/**
-	 * ÊÇ
+	 * æ˜¯
 	 */
 	public static final String TRUE = "1";
 	/**
-	 * ·ñ
+	 * å¦
 	 */
 	public static final String FALSE = "0";
 }

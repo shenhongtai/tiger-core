@@ -1,29 +1,29 @@
-package cn.imtiger.constant;
+ï»¿package cn.imtiger.constant;
 
 /**
- * ÓÅÏÈ¼¶³£Á¿
+ * ä¼˜å…ˆçº§å¸¸é‡
  * @author shen_hongtai
  * @date 2019-9-19
  */
 public class PriorityConst {
 	/**
-	 * ×îµÍ
+	 * æœ€ä½
 	 */
 	public static final String MINIMUM = "1";
 	/**
-	 * µÍ
+	 * ä½
 	 */
 	public static final String LOW = "2";
 	/**
-	 * ÖĞ
+	 * ä¸­
 	 */
 	public static final String MEDIUN = "3";
 	/**
-	 * ¸ß
+	 * é«˜
 	 */
 	public static final String HIGH = "4";
 	/**
-	 * ½ô¼±
+	 * ç´§æ€¥
 	 */
 	public static final String CRITICAL = "5";
 }

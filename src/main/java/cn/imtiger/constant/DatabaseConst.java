@@ -1,57 +1,57 @@
 package cn.imtiger.constant;
 
 /**
- * Êı¾İ¿â³£Á¿
+ * æ•°æ®åº“å¸¸é‡
  * @author shen_hongtai
  * @date 2019-9-19
  */
 public class DatabaseConst {
 	/**
-	 * OracleÊı¾İ¿â
+	 * Oracleæ•°æ®åº“
 	 */
 	public static final String ORACLE = "Oracle";
 	/**
-	 * MySQLÊı¾İ¿â
+	 * MySQLæ•°æ®åº“
 	 */
 	public static final String MYSQL = "MySQL";
 	/**
-	 * ÉñÖİÍ¨ÓÃÊı¾İ¿â
+	 * ç¥å·é€šç”¨æ•°æ®åº“
 	 */
 	public static final String OSCAR = "Oscar";
 	/**
-	 * PostgreSQLÊı¾İ¿â
+	 * PostgreSQLæ•°æ®åº“
 	 */
 	public static final String POSTGRESQL = "PostgreSQL";
 	/**
-	 * DB2Êı¾İ¿â
+	 * DB2æ•°æ®åº“
 	 */
 	public static final String DB2 = "DB2";
 	/**
-	 * ´ïÃÎÊı¾İ¿â
+	 * è¾¾æ¢¦æ•°æ®åº“
 	 */
 	public static final String DAMENG = "DaMeng";
 	/**
-	 * SybaseÊı¾İ¿â
+	 * Sybaseæ•°æ®åº“
 	 */
 	public static final String SYBASE = "Sybase";
 	/**
-	 * SQLServer2005Êı¾İ¿â
+	 * SQLServer2005æ•°æ®åº“
 	 */
 	public static final String SQLSERVER2005 = "MS2005-SQL";
 	/**
-	 * SQLServerÊı¾İ¿â
+	 * SQLServeræ•°æ®åº“
 	 */
 	public static final String SQLSERVER = "MS-SQL";
 	/**
-	 * KingBaseÊı¾İ¿â
+	 * KingBaseæ•°æ®åº“
 	 */
 	public static final String KINGBASE = "KingbaseES";
 	/**
-	 * EnterpriseÊı¾İ¿â
+	 * Enterpriseæ•°æ®åº“
 	 */
 	public static final String ENTERPRISEDB = "EnterpriseDB";
 	/**
-	 * GBaseÊı¾İ¿â
+	 * GBaseæ•°æ®åº“
 	 */
 	public static final String GBASE = "GBase";
 }

@@ -1,41 +1,41 @@
-package cn.imtiger.constant;
+ï»¿package cn.imtiger.constant;
 
 /**
- * ÖØ¸´ÀàĞÍ³£Á¿
+ * é‡å¤ç±»å‹å¸¸é‡
  * @author shen_hongtai
  * @date 2019-9-19
  */
 public class RepeatConst {
 	/**
-	 * ²»ÖØ¸´
+	 * ä¸é‡å¤
 	 */
 	public static final String NONE = "0";
 	/**
-	 * Ã¿Ìì
+	 * æ¯å¤©
 	 */
 	public static final String EVERY_DAY = "1";
 	/**
-	 * ¹¤×÷ÈÕÃ¿Ìì
+	 * å·¥ä½œæ—¥æ¯å¤©
 	 */
 	public static final String EVERY_WEEKDAY = "2";
 	/**
-	 * ÖÜÄ©Ã¿Ìì
+	 * å‘¨æœ«æ¯å¤©
 	 */
 	public static final String EVERY_WEEKEND = "3";
 	/**
-	 * Ã¿ÖÜ
+	 * æ¯å‘¨
 	 */
 	public static final String EVERY_WEEK = "4";
 	/**
-	 * Ã¿ÔÂ
+	 * æ¯æœˆ
 	 */
 	public static final String EVERY_MONTH = "5";
 	/**
-	 * Ã¿¼¾¶È
+	 * æ¯å­£åº¦
 	 */
 	public static final String EVERY_SEASON = "6";
 	/**
-	 * Ã¿Äê
+	 * æ¯å¹´
 	 */
 	public static final String EVERY_YEAR = "7";
 }

@@ -1,20 +1,20 @@
-package cn.imtiger.constant;
+锘縫ackage cn.imtiger.constant;
 
 /**
- * 消息常量
+ * 娑堟伅甯搁噺
  * @author shen_hongtai
  * @date 2019-12-11
  */
 public class MessageConst {
 
 	/**
-	 * 操作成功
+	 * 鎿嶄綔鎴愬姛
 	 */
-	public static final String SUCCESS = "操作成功";
+	public static final String SUCCESS = "鎿嶄綔鎴愬姛";
 	
 	/**
-	 * 操作失败
+	 * 鎿嶄綔澶辫触
 	 */
-	public static final String FAILURE = "操作失败";
+	public static final String FAILURE = "鎿嶄綔澶辫触";
 	
 }

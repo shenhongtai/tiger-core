@@ -1,7 +1,7 @@
-package cn.imtiger.constant;
+ï»¿package cn.imtiger.constant;
 
 /**
- * HTTPÍ·³£Á¿
+ * HTTPå¤´å¸¸é‡
  * @author shen_hongtai
  * @date 2019-12-11
  */
