@@ -19,7 +19,7 @@ import cn.imtiger.util.data.DatetimeUtil;
 import cn.imtiger.util.data.ValidateUtil;
 
 /**
- * ¶¨Ê±ÈÎÎñ·şÎñ
+ * å®šæ—¶ä»»åŠ¡æœåŠ¡
  * @author shen_hongtai
  * @date 2019-10-5
  */
@@ -27,41 +27,41 @@ public class TaskService {
 	private static final Logger logger = LoggerFactory.getLogger(TaskService.class);
 	
 	/**
-	 * ÈÎÎñ·şÎñÓëÏß³ÌÁĞ±íÓ³Éä
+	 * ä»»åŠ¡æœåŠ¡ä¸çº¿ç¨‹åˆ—è¡¨æ˜ å°„
 	 */
 	private Map<ScheduledExecutorService, List<String>> serviceMap;	
 	
 	/**
-	 * Ïß³Ì¶ÔÏóÒıÓÃÓ³Éä
+	 * çº¿ç¨‹å¯¹è±¡å¼•ç”¨æ˜ å°„
 	 */
 	private Map<String, Thread> threadMap;
 	
 	/**
-	 * Ïß³ÌÖ´ĞĞÖÜÆÚÓ³Éä
+	 * çº¿ç¨‹æ‰§è¡Œå‘¨æœŸæ˜ å°„
 	 */
 	private Map<String, Integer> threadDelayMap;
 	
 	/**
-	 * Ïß³ÌÖ´ĞĞÊ±¼äÓ³Éä
+	 * çº¿ç¨‹æ‰§è¡Œæ—¶é—´æ˜ å°„
 	 */
 	private Map<String, Date> threadStartTimeMap;
 	
 	/**
-	 * ¶¨Ê±ÈÎÎñ·şÎñ³õÊ¼»¯
+	 * å®šæ—¶ä»»åŠ¡æœåŠ¡åˆå§‹åŒ–
 	 */
 	public TaskService() {
-		// ³õÊ¼»¯Ó³ÉäMap
+		// åˆå§‹åŒ–æ˜ å°„Map
 		serviceMap = new HashMap<>();
 		threadMap = new HashMap<>();
 		threadDelayMap = new HashMap<>();
 		threadStartTimeMap = new HashMap<>();
 		
-		// Æô¶¯Ïß³Ì×´Ì¬Ñ²¼ìÈÎÎñ
+		// å¯åŠ¨çº¿ç¨‹çŠ¶æ€å·¡æ£€ä»»åŠ¡
 		runInspection();
 	}
 	
 	/**
-	 * ÈÎÎñÆô¶¯
+	 * ä»»åŠ¡å¯åŠ¨
 	 * @param task
 	 * @return
 	 */
@@ -76,7 +76,7 @@ public class TaskService {
 	}
 
 	/**
-	 * ÈÎÎñÅúÁ¿Æô¶¯
+	 * ä»»åŠ¡æ‰¹é‡å¯åŠ¨
 	 * @param taskList
 	 */
 	public void batchStart(List<AbstractTask> taskList) {
@@ -97,7 +97,7 @@ public class TaskService {
 	}
 
 	/**
-	 * ÈÎÎñÔİÍ£
+	 * ä»»åŠ¡æš‚åœ
 	 * @param taskName
 	 */
 	public void pause(String taskName) {
@@ -116,7 +116,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * ÈÎÎñÅúÁ¿ÔİÍ£
+	 * ä»»åŠ¡æ‰¹é‡æš‚åœ
 	 * @param taskNameList
 	 */
 	public void batchPause(List<String> taskNameList) {
@@ -126,7 +126,7 @@ public class TaskService {
 	}
 
 	/**
-	 * ÈÎÎñ¼ÌĞø
+	 * ä»»åŠ¡ç»§ç»­
 	 * @param taskName
 	 */
 	public void notify(String taskName) {
@@ -139,7 +139,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * ÈÎÎñÅúÁ¿¼ÌĞø
+	 * ä»»åŠ¡æ‰¹é‡ç»§ç»­
 	 * @param taskNameList
 	 */
 	public void batchNotify(List<String> taskNameList) {
@@ -149,7 +149,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * ÈÎÎñÖĞÖ¹
+	 * ä»»åŠ¡ä¸­æ­¢
 	 * @param taskName
 	 */
 	public void stop(String taskName) {
@@ -162,7 +162,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * ÈÎÎñÅúÁ¿ÖĞÖ¹
+	 * ä»»åŠ¡æ‰¹é‡ä¸­æ­¢
 	 * @param taskNameList
 	 */
 	public void batchStop(List<String> taskNameList) {
@@ -172,7 +172,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°ÈÎÎñĞÅÏ¢ÁĞ±í
+	 * è·å–å½“å‰ä»»åŠ¡ä¿¡æ¯åˆ—è¡¨
 	 * @return
 	 */
 	public List<Map<String, Object>> getTaskList() {
@@ -191,7 +191,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * ÈÎÎñĞÅÏ¢Ğ£Ñé
+	 * ä»»åŠ¡ä¿¡æ¯æ ¡éªŒ
 	 * @param task
 	 * @return
 	 */
@@ -212,7 +212,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * ÈÎÎñÖ´ĞĞ
+	 * ä»»åŠ¡æ‰§è¡Œ
 	 * @param service
 	 * @param task
 	 */
@@ -232,7 +232,7 @@ public class TaskService {
 	}
 	
 	/**
-	 * ·şÎñ×´Ì¬Ñ²¼ì
+	 * æœåŠ¡çŠ¶æ€å·¡æ£€
 	 */
 	private void inspection() {
 		Iterator<Entry<ScheduledExecutorService, List<String>>> iterator = serviceMap.entrySet().iterator();
@@ -253,10 +253,10 @@ public class TaskService {
 	}
 	
 	/**
-	 * ·şÎñ×´Ì¬Ñ²¼ìÈÎÎñÖ´ĞĞ
+	 * æœåŠ¡çŠ¶æ€å·¡æ£€ä»»åŠ¡æ‰§è¡Œ
 	 */
 	private void runInspection() {
-		String taskName = "·şÎñ×´Ì¬Ñ²¼ìÈÎÎñ";
+		String taskName = "æœåŠ¡çŠ¶æ€å·¡æ£€ä»»åŠ¡";
 		Thread thread = new Thread(taskName) {
 			@Override
 			public void run() {

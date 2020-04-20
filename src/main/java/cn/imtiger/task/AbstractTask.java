@@ -1,34 +1,34 @@
 package cn.imtiger.task;
 
 /**
- * ¶¨Ê±ÈÎÎñ³éÏóÀà
+ * å®šæ—¶ä»»åŠ¡æŠ½è±¡ç±»
  * @author shen_hongtai
  * @date 2019-10-5
  */
 public abstract class AbstractTask {
 	/**
-	 * ÈÎÎñÃû³Æ
+	 * ä»»åŠ¡åç§°
 	 */
 	private String taskName;
 	/**
-	 * ÈÎÎñ¼ä¸ôÊ±¼ä(Ãë)
+	 * ä»»åŠ¡é—´éš”æ—¶é—´(ç§’)
 	 */
 	private Integer delay;
 	
 	/**
-	 * Ä¬ÈÏ¹¹Ôì·½·¨
+	 * é»˜è®¤æ„é€ æ–¹æ³•
 	 */
 	public AbstractTask() {
 		this.init();
 	}
 	
 	/**
-	 * ÈÎÎñ³õÊ¼»¯£¬ÉèÖÃÈÎÎñÃû³Æ¼°¼ä¸ôÊ±¼ä
+	 * ä»»åŠ¡åˆå§‹åŒ–ï¼Œè®¾ç½®ä»»åŠ¡åç§°åŠé—´éš”æ—¶é—´
 	 */
 	public abstract void init();
 
 	/**
-	 * ÈÎÎñÖ´ĞĞÂß¼­
+	 * ä»»åŠ¡æ‰§è¡Œé€»è¾‘
 	 */
 	public abstract void run();
 
