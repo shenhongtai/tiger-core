@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import cn.imtiger.util.data.ValidateUtil;
 
@@ -32,6 +33,7 @@ import cn.imtiger.util.data.ValidateUtil;
  */
 @Configuration
 @WebFilter(filterName = "securityFilter", urlPatterns = {"/*"}, description = "°²È«¹ýÂËÆ÷")
+@PropertySource(value = "classpath:app.properties", encoding = "UTF-8")
 public class SecurityFilter implements Filter {
 	private static Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
 

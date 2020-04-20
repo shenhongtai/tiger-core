@@ -1,11 +1,6 @@
 package cn.imtiger.controller;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -93,6 +88,12 @@ public abstract class BaseController {
     private String icpUrl;
     
     /**
+     * 启用CSRF校验
+     */
+	@Value("${app.security.enableCsrf:1}")
+	private String enableCsrf;
+    
+    /**
      * 获取用户设备类型
      * @return
      */
@@ -159,6 +160,22 @@ public abstract class BaseController {
     public String getRequestPort() {
 		return request.getLocalPort() + "";
 	}
+    
+    /**
+     * 校验CSRF
+     * @param request
+     * @param response
+     */
+	public void checkCSRF(HttpServletRequest request, HttpServletResponse response) {
+		boolean flag = TokenUtil.checkCrsfTokenValidate(request);
+		if (!flag) {
+			try {
+				response.sendError(403);
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		}
+	}
 
 	/**
 	 * 校验用户访问权限
@@ -170,25 +187,13 @@ public abstract class BaseController {
 		// 获取当前登录用户信息
 		JSONObject user = this.getCurrentUser();
 		if (user != null) {
-			if (user.get("TYPE") != null) {
-				if ("1".equals(user.get("ID"))) {
-					// 用户ID是1，为超级管理员，所有页面都可访问
-					flag = true;
-				} else if ("1".equals(user.get("TYPE"))) {
-					// 用户类型是1（社会用户），访问的页面是client开头的，也就是手机端页面，标识为true（可以访问）
-					if (viewPath.startsWith("client")) {
-						flag = true;
-					}
-				} else if ("2".equals(user.get("TYPE")) || "3".equals(user.get("TYPE"))) {
-					// 用户类型是2或3（平台管理和停车场管理），访问的是manage开头的，也就是管理端页面，标识为true
-					if (viewPath.startsWith("manage")) {
-						flag = true;
-					}
-				}
-			}
+			// 获取用户权限
+			
+			// 标记为有权限访问
+			flag = true;
 		}
 		
-		// 如果flag没有改成true，表示没有权限，返回401错误
+		// 如果没有权限，返回401错误
 		if (flag == false) {
 			try {
 				response.sendError(401);
@@ -217,6 +222,8 @@ public abstract class BaseController {
 		model.put("version", version);
 		model.put("icp", icp);
 		model.put("icpUrl", icpUrl);
+		model.put("csrf", TokenUtil.getTokenForRequest(request));
+
 		return viewPath;
 	}
 
