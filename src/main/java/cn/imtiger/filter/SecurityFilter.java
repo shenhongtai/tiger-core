@@ -27,12 +27,12 @@ import org.springframework.context.annotation.PropertySource;
 import cn.imtiger.util.data.ValidateUtil;
 
 /**
- * °²È«¹ıÂËÆ÷
+ * å®‰å…¨è¿‡æ»¤å™¨
  * @author shen_hongtai
  * @date 2019-12-11
  */
 @Configuration
-@WebFilter(filterName = "securityFilter", urlPatterns = {"/*"}, description = "°²È«¹ıÂËÆ÷")
+@WebFilter(filterName = "securityFilter", urlPatterns = {"/*"}, description = "å®‰å…¨è¿‡æ»¤å™¨")
 @PropertySource(value = "classpath:app.properties", encoding = "UTF-8")
 public class SecurityFilter implements Filter {
 	private static Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
@@ -132,18 +132,18 @@ public class SecurityFilter implements Filter {
 			HttpServletResponse httpResponse = (HttpServletResponse) response;
 			StringBuffer currentURL = httpRequest.getRequestURL();
 			if (logger.isDebugEnabled()) {
-				logger.debug("ÇëÇóURL£º" + currentURL);
+				logger.debug("è¯·æ±‚URLï¼š" + currentURL);
 			}
 
 			if (!"1".equals(enabled) || this.isWhiteURL(currentURL.toString())) {
 				if (logger.isDebugEnabled()) {
-					logger.debug("ÇëÇóÎ´½øĞĞ°²È«¹ıÂË£º" + currentURL);
+					logger.debug("è¯·æ±‚æœªè¿›è¡Œå®‰å…¨è¿‡æ»¤ï¼š" + currentURL);
 				}
 
 				chain.doFilter(httpRequest, httpResponse);
 			} else {
 				/**
-				 * ĞÅÈÎÓò¼ì²é
+				 * ä¿¡ä»»åŸŸæ£€æŸ¥
 				 */
 				if ("1".equals(refererEnabled)) {
 					if (!this.isRequestFefererTrusted(httpRequest)) {
@@ -153,7 +153,7 @@ public class SecurityFilter implements Filter {
 				}
 
 				/**
-				 * XSS×¢Èë¼ì²é
+				 * XSSæ³¨å…¥æ£€æŸ¥
 				 */
 				if ("1".equals(xssEnabled)) {
 					if (this.isSpecialCharactersInRequest(httpRequest)) {
@@ -163,7 +163,7 @@ public class SecurityFilter implements Filter {
 				}
 				
 				/**
-				 * SQL×¢Èë¼ì²é
+				 * SQLæ³¨å…¥æ£€æŸ¥
 				 */
 				if ("1".equals(sqlInjectEnabled)) {
 					if (this.isSqlCharactersInRequest(httpRequest)) {
@@ -173,7 +173,7 @@ public class SecurityFilter implements Filter {
 				}
 
 				/**
-				 * HTTPÇëÇó¶¯´Ê¼ì²é
+				 * HTTPè¯·æ±‚åŠ¨è¯æ£€æŸ¥
 				 */
 				if ("1".equals(httpMethodEnabled)) {
 					if (!this.isHttpMethodAllowed(httpRequest)) {
@@ -217,7 +217,7 @@ public class SecurityFilter implements Filter {
 
 		if (ValidateUtil.isNotBlank(val.toString())) {
 			if (logger.isInfoEnabled()) {
-				logger.info("ÇëÇóÖĞº¬ÓĞ·Ç·¨×Ö·û£º" + val);
+				logger.info("è¯·æ±‚ä¸­å«æœ‰éæ³•å­—ç¬¦ï¼š" + val);
 			}
 
 			return true;
@@ -243,7 +243,7 @@ public class SecurityFilter implements Filter {
 			}
 
 			if (logger.isInfoEnabled()) {
-				logger.info("ÇëÇóÀ´Ô´Óò²»±»ĞÅÈÎ£º " + referer);
+				logger.info("è¯·æ±‚æ¥æºåŸŸä¸è¢«ä¿¡ä»»ï¼š " + referer);
 			}
 
 			return false;
@@ -274,7 +274,7 @@ public class SecurityFilter implements Filter {
 
 		if (this.sqlValidate(sql.toString())) {
 			if (logger.isInfoEnabled()) {
-				logger.info("ÇëÇóÖĞº¬ÓĞ·Ç·¨sql×Ö·û£º" + sql);
+				logger.info("è¯·æ±‚ä¸­å«æœ‰éæ³•sqlå­—ç¬¦ï¼š" + sql);
 			}
 
 			return true;

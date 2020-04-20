@@ -6,14 +6,14 @@ import org.joda.time.DateTime;
 import org.joda.time.chrono.ISOChronology;
 
 /**
- * SAML2.0¹¤¾ßÀà
+ * SAML2.0å·¥å…·ç±»
  * @author shen_hongtai
  * @date 2019-11-29
  */
 public abstract class SAMLUtil {
 	
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¼ä
+	 * è·å–å½“å‰æ—¶é—´
 	 * @return
 	 */
 	public static DateTime getIssueInstant() {
@@ -28,7 +28,7 @@ public abstract class SAMLUtil {
 	}
 
 	/**
-	 * »ñÈ¡Ïû·Ñ½ØÖ¹Ê±¼ä£¨Ä¬ÈÏÎªµ±Ç°Ê±¼äºó5·ÖÖÓ£©
+	 * è·å–æ¶ˆè´¹æˆªæ­¢æ—¶é—´ï¼ˆé»˜è®¤ä¸ºå½“å‰æ—¶é—´å5åˆ†é’Ÿï¼‰
 	 * @return
 	 */
 	public static DateTime getNotOnOrAfter() {
@@ -36,8 +36,8 @@ public abstract class SAMLUtil {
 	}
 
 	/**
-	 * »ñÈ¡Ïû·Ñ½ØÖ¹Ê±¼ä
-	 * @param expiredMinutes ÓĞĞ§ÆÚ£¨µ¥Î»£º·ÖÖÓ£©
+	 * è·å–æ¶ˆè´¹æˆªæ­¢æ—¶é—´
+	 * @param expiredMinutes æœ‰æ•ˆæœŸï¼ˆå•ä½ï¼šåˆ†é’Ÿï¼‰
 	 * @return
 	 */
 	public static DateTime getNotOnOrAfter(Integer expiredMinutes) {

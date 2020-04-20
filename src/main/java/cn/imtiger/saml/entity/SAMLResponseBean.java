@@ -10,7 +10,7 @@ import org.opensaml.saml2.core.SubjectConfirmation;
 import com.alibaba.fastjson.JSON;
 
 /**
- * SAML2.0响应解析结果对象
+ * SAML2.0鍝嶅簲瑙ｆ瀽缁撴灉瀵硅薄
  * @author shen_hongtai
  * @date 2019-12-5
  */
@@ -39,7 +39,7 @@ public class SAMLResponseBean {
 	}
 
 	/**
-	 * 获取SAML请求ID
+	 * 鑾峰彇SAML璇锋眰ID
 	 * @return
 	 */
 	public String getId() {
@@ -47,7 +47,7 @@ public class SAMLResponseBean {
 	}
 
 	/**
-	 * 获取返回地址
+	 * 鑾峰彇杩斿洖鍦板潃
 	 * @return
 	 */
 	public String getInResponseTo() {
@@ -55,7 +55,7 @@ public class SAMLResponseBean {
 	}
 
 	/**
-	 * 获取断言ID
+	 * 鑾峰彇鏂█ID
 	 * @return
 	 */
 	public String getAssertionId() {
@@ -63,7 +63,7 @@ public class SAMLResponseBean {
 	}
 
 	/**
-	 * 获取登录用户ID
+	 * 鑾峰彇鐧诲綍鐢ㄦ埛ID
 	 * @return
 	 */
 	public String getUserId() {
@@ -71,7 +71,7 @@ public class SAMLResponseBean {
 	}
 
 	/**
-	 * 获取SAML响应时间
+	 * 鑾峰彇SAML鍝嶅簲鏃堕棿
 	 * @return
 	 */
 	public Date getIssueInstant() {
@@ -79,7 +79,7 @@ public class SAMLResponseBean {
 	}
 
 	/**
-	 * 获取SAML响应过期时间
+	 * 鑾峰彇SAML鍝嶅簲杩囨湡鏃堕棿
 	 * @return
 	 */
 	public Date getNotOnOrAfter() {

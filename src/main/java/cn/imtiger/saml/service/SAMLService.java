@@ -4,42 +4,42 @@ import cn.imtiger.saml.entity.SAMLRequestBean;
 import cn.imtiger.saml.entity.SAMLResponseBean;
 
 /**
- * SAML2.0·þÎñ
+ * SAML2.0æœåŠ¡
  * @author shen_hongtai
  * @date 2019-11-29
  */
 public interface SAMLService {
 	
 	/**
-	 * ¹¹½¨SAMLÇëÇó±¨ÎÄ
-	 * @param localDomain ¿Í»§¶ËµØÖ·
-	 * @param destination ·þÎñ¶ËµÇÂ¼µØÖ·
-	 * @param assertionConsumerServiceURL ¿Í»§¶Ë»Øµ÷µØÖ·
+	 * æž„å»ºSAMLè¯·æ±‚æŠ¥æ–‡
+	 * @param localDomain å®¢æˆ·ç«¯åœ°å€
+	 * @param destination æœåŠ¡ç«¯ç™»å½•åœ°å€
+	 * @param assertionConsumerServiceURL å®¢æˆ·ç«¯å›žè°ƒåœ°å€
 	 * @return
 	 */
 	public String buildSAMLRequest(String localDomain, String destination, String assertionConsumerServiceURL);
 	
 	/**
-	 * ¹¹½¨SAMLÏìÓ¦±¨ÎÄ
-	 * @param requestId SAMLÇëÇóID authnRequest.getID()
-	 * @param userId µÇÂ¼ÓÃ»§ID
-	 * @param destination ¿Í»§¶Ë»Øµ÷µØÖ· authnRequest.getAssertionConsumerServiceURL()
+	 * æž„å»ºSAMLå“åº”æŠ¥æ–‡
+	 * @param requestId SAMLè¯·æ±‚ID authnRequest.getID()
+	 * @param userId ç™»å½•ç”¨æˆ·ID
+	 * @param destination å®¢æˆ·ç«¯å›žè°ƒåœ°å€ authnRequest.getAssertionConsumerServiceURL()
 	 * @param audience authnRequest.getIssuer().getValue();
-	 * @param localDomain ·þÎñ¶ËµØÖ·
+	 * @param localDomain æœåŠ¡ç«¯åœ°å€
 	 * @return
 	 */
 	public String buildSAMLResponse(String requestId, String userId, String destination, String audience, String localDomain);
 
 	/**
-	 * ½âÎöSAMLÇëÇó±¨ÎÄ
-	 * @param encodedRequest SAMLÇëÇó±¨ÎÄ
+	 * è§£æžSAMLè¯·æ±‚æŠ¥æ–‡
+	 * @param encodedRequest SAMLè¯·æ±‚æŠ¥æ–‡
 	 * @return
 	 */
 	public SAMLRequestBean resolveSAMLRequest(String encodedRequest);
 	
 	/**
-	 * ½âÎöSAML·µ»Ø±¨ÎÄ
-	 * @param encodedResponse SAML·µ»Ø±¨ÎÄ
+	 * è§£æžSAMLè¿”å›žæŠ¥æ–‡
+	 * @param encodedResponse SAMLè¿”å›žæŠ¥æ–‡
 	 * @return
 	 */
 	public SAMLResponseBean resolveSAMLResponse(String encodedResponse) throws Exception;

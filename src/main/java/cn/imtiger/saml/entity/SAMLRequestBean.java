@@ -5,7 +5,7 @@ import org.opensaml.saml2.core.AuthnRequest;
 import com.alibaba.fastjson.JSON;
 
 /**
- * SAML2.0ÇëÇó½âÎö½á¹û¶ÔÏó
+ * SAML2.0è¯·æ±‚è§£æç»“æœå¯¹è±¡
  * @author shen_hongtai
  * @date 2019-12-5
  */
@@ -25,7 +25,7 @@ public class SAMLRequestBean {
 	}
 
 	/**
-	 * »ñÈ¡SAMLÇëÇóID
+	 * è·å–SAMLè¯·æ±‚ID
 	 * @return
 	 */
 	public String getId() {
@@ -33,7 +33,7 @@ public class SAMLRequestBean {
 	}
 
 	/**
-	 * »ñÈ¡SAMLÇëÇó°æ±¾
+	 * è·å–SAMLè¯·æ±‚ç‰ˆæœ¬
 	 * @return
 	 */
 	public String getVersion() {
@@ -41,7 +41,7 @@ public class SAMLRequestBean {
 	}
 
 	/**
-	 * »ñÈ¡µÇÂ¼·şÎñÌá¹©·½Ãû³Æ
+	 * è·å–ç™»å½•æœåŠ¡æä¾›æ–¹åç§°
 	 * @return
 	 */
 	public String getProvider() {
@@ -49,7 +49,7 @@ public class SAMLRequestBean {
 	}
 
 	/**
-	 * »ñÈ¡¿Í»§¶Ë»Øµ÷µØÖ·
+	 * è·å–å®¢æˆ·ç«¯å›è°ƒåœ°å€
 	 * @return
 	 */
 	public String getDestination() {
@@ -57,7 +57,7 @@ public class SAMLRequestBean {
 	}
 
 	/**
-	 * »ñÈ¡¿Í»§¶ËÓòÃû
+	 * è·å–å®¢æˆ·ç«¯åŸŸå
 	 * @return
 	 */
 	public String getAudience() {

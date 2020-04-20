@@ -48,7 +48,7 @@ import cn.imtiger.saml.util.SAMLUtil;
 import cn.imtiger.util.data.StringUtil;
 
 /**
- * SAML2.0·şÎñ
+ * SAML2.0æœåŠ¡
  * @author shen_hongtai
  * @date 2019-11-29
  */
@@ -191,14 +191,14 @@ public class SAMLServiceImpl implements SAMLService {
 			Long endTime = samlResponseInfo.getNotOnOrAfter().getTime();
 			Long startTime = samlResponseInfo.getIssueInstant().getTime();
 			if (now < startTime || now >= endTime) {
-				throw new Exception("²»ÔÚ¶ÏÑÔÏû·ÑÓĞĞ§ÆÚÄÚ£¬ÇëÈ·ÈÏÏµÍ³Ê±¼äÊÇ·ñÕıÈ·");
+				throw new Exception("ä¸åœ¨æ–­è¨€æ¶ˆè´¹æœ‰æ•ˆæœŸå†…ï¼Œè¯·ç¡®è®¤ç³»ç»Ÿæ—¶é—´æ˜¯å¦æ­£ç¡®");
 			}
 		}
 		return samlResponseInfo;
 	}
 
 	/**
-	 * Éú³ÉXMLObject
+	 * ç”ŸæˆXMLObject
 	 * @param objectQName
 	 * @return
 	 */
@@ -209,7 +209,7 @@ public class SAMLServiceImpl implements SAMLService {
 	}
 	
 	/**
-	 * XMLObject×ªÎª×Ö·û´®
+	 * XMLObjectè½¬ä¸ºå­—ç¬¦ä¸²
 	 * @param xmlObject
 	 * @return
 	 */
@@ -228,7 +228,7 @@ public class SAMLServiceImpl implements SAMLService {
 	}
 	
 	/**
-	 * XMLObject×ªÎªBase64×Ö·û´®
+	 * XMLObjectè½¬ä¸ºBase64å­—ç¬¦ä¸²
 	 * @param xmlObject
 	 * @return
 	 */
@@ -247,7 +247,7 @@ public class SAMLServiceImpl implements SAMLService {
 	}
 	
 	/**
-	 * Base64×Ö·û´®×ªÎªXMLObject
+	 * Base64å­—ç¬¦ä¸²è½¬ä¸ºXMLObject
 	 * @param xmlObjectString
 	 * @return
 	 */
