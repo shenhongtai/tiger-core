@@ -28,16 +28,16 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 /**
- * ¶şÎ¬Âë¹¤¾ßÀà
+ * äºŒç»´ç å·¥å…·ç±»
  * @author ShenHongtai
  * @date 2019-7-13
  */
 public class QrCodeUtil {
 	/**
-	 * Éú³É°üº¬×Ö·û´®ĞÅÏ¢µÄ¶şÎ¬ÂëÍ¼Æ¬
+	 * ç”ŸæˆåŒ…å«å­—ç¬¦ä¸²ä¿¡æ¯çš„äºŒç»´ç å›¾ç‰‡
 	 * 
-	 * @param filePath ÎÄ¼şÂ·¾¶
-	 * @param content  ¶şÎ¬ÂëĞ¯´øĞÅÏ¢
+	 * @param filePath æ–‡ä»¶è·¯å¾„
+	 * @param content  äºŒç»´ç æºå¸¦ä¿¡æ¯
 	 * @throws IOException
 	 */
 	public static boolean createQRCodeFile(String filePath, String content) throws WriterException, IOException {
@@ -45,33 +45,33 @@ public class QrCodeUtil {
 	}
 
 	/**
-	 * Éú³É°üº¬×Ö·û´®ĞÅÏ¢µÄ¶şÎ¬ÂëÍ¼Æ¬
+	 * ç”ŸæˆåŒ…å«å­—ç¬¦ä¸²ä¿¡æ¯çš„äºŒç»´ç å›¾ç‰‡
 	 * 
-	 * @param outputStream ÎÄ¼şÊä³öÁ÷Â·¾¶
-	 * @param content      ¶şÎ¬ÂëĞ¯´øĞÅÏ¢
-	 * @param qrCodeSize   ¶şÎ¬ÂëÍ¼Æ¬´óĞ¡
-	 * @param imageFormat  ¶şÎ¬ÂëµÄ¸ñÊ½
+	 * @param outputStream æ–‡ä»¶è¾“å‡ºæµè·¯å¾„
+	 * @param content      äºŒç»´ç æºå¸¦ä¿¡æ¯
+	 * @param qrCodeSize   äºŒç»´ç å›¾ç‰‡å¤§å°
+	 * @param imageFormat  äºŒç»´ç çš„æ ¼å¼
 	 * @throws WriterException
 	 * @throws IOException
 	 */
 	public static boolean createQrCode(OutputStream outputStream, String content, int qrCodeSize, String imageFormat)
 			throws WriterException, IOException {
-		// ÉèÖÃ¶şÎ¬Âë¾À´í¼¶±ğMAP
+		// è®¾ç½®äºŒç»´ç çº é”™çº§åˆ«MAP
 		Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
-		// ÉèÖÃ¶şÎ¬ÂëÅÅ´íÂÊ£¬¿ÉÑ¡L(7%)¡¢M(15%)¡¢Q(25%)¡¢H(30%)£¬ÅÅ´íÂÊÔ½¸ß¿É´æ´¢µÄĞÅÏ¢Ô½ÉÙ£¬µ«¶Ô¶şÎ¬ÂëÇåÎú¶ÈµÄÒªÇóÔ½Ğ¡
-		// ½Ã´í¼¶±ğ
+		// è®¾ç½®äºŒç»´ç æ’é”™ç‡ï¼Œå¯é€‰L(7%)ã€M(15%)ã€Q(25%)ã€H(30%)ï¼Œæ’é”™ç‡è¶Šé«˜å¯å­˜å‚¨çš„ä¿¡æ¯è¶Šå°‘ï¼Œä½†å¯¹äºŒç»´ç æ¸…æ™°åº¦çš„è¦æ±‚è¶Šå°
+		// çŸ«é”™çº§åˆ«
 		hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 		QRCodeWriter qrCodeWriter = new QRCodeWriter();
-		// ´´½¨±ÈÌØ¾ØÕó(Î»¾ØÕó)µÄQRÂë±àÂëµÄ×Ö·û´®
+		// åˆ›å»ºæ¯”ç‰¹çŸ©é˜µ(ä½çŸ©é˜µ)çš„QRç ç¼–ç çš„å­—ç¬¦ä¸²
 		BitMatrix byteMatrix = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, qrCodeSize, qrCodeSize, hintMap);
-		// Ê¹BufferedImage¹´»­QRCode (matrixWidth ÊÇĞĞ¶şÎ¬ÂëÏñËØµã)
+		// ä½¿BufferedImageå‹¾ç”»QRCode (matrixWidth æ˜¯è¡ŒäºŒç»´ç åƒç´ ç‚¹)
 		int matrixWidth = byteMatrix.getWidth();
 		BufferedImage image = new BufferedImage(matrixWidth - 200, matrixWidth - 200, BufferedImage.TYPE_INT_RGB);
 		image.createGraphics();
 		Graphics2D graphics = (Graphics2D) image.getGraphics();
 		graphics.setColor(Color.WHITE);
 		graphics.fillRect(0, 0, matrixWidth, matrixWidth);
-		// Ê¹ÓÃ±ÈÌØ¾ØÕó»­²¢±£´æÍ¼Ïñ
+		// ä½¿ç”¨æ¯”ç‰¹çŸ©é˜µç”»å¹¶ä¿å­˜å›¾åƒ
 		graphics.setColor(Color.BLACK);
 		for (int i = 0; i < matrixWidth; i++) {
 			for (int j = 0; j < matrixWidth; j++) {
@@ -84,15 +84,15 @@ public class QrCodeUtil {
 	}
 
 	/**
-	 * ¶Á¶şÎ¬Âë²¢Êä³öĞ¯´øµÄĞÅÏ¢
+	 * è¯»äºŒç»´ç å¹¶è¾“å‡ºæºå¸¦çš„ä¿¡æ¯
 	 * 
 	 * @param inputStream
 	 * @throws IOException
 	 */
 	public static void readQrCode(InputStream inputStream) throws IOException {
-		// ´ÓÊäÈëÁ÷ÖĞ»ñÈ¡×Ö·û´®ĞÅÏ¢
+		// ä»è¾“å…¥æµä¸­è·å–å­—ç¬¦ä¸²ä¿¡æ¯
 		BufferedImage image = ImageIO.read(inputStream);
-		// ½«Í¼Ïñ×ª»»Îª¶ş½øÖÆÎ»Í¼Ô´
+		// å°†å›¾åƒè½¬æ¢ä¸ºäºŒè¿›åˆ¶ä½å›¾æº
 		LuminanceSource source = new BufferedImageLuminanceSource(image);
 		BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 		QRCodeReader reader = new QRCodeReader();
@@ -106,7 +106,7 @@ public class QrCodeUtil {
 	}
 
 	/**
-	 * ¶Á¶şÎ¬Âë²¢Êä³öĞ¯´øµÄĞÅÏ¢
+	 * è¯»äºŒç»´ç å¹¶è¾“å‡ºæºå¸¦çš„ä¿¡æ¯
 	 * 
 	 * @param filePath
 	 * @throws IOException

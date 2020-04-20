@@ -18,13 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import cn.imtiger.util.data.ValidateUtil;
 
 /**
- * ÇëÇó´¦Àí¹¤¾ßÀà
+ * è¯·æ±‚å¤„ç†å·¥å…·ç±»
  * @author ShenHongtai
  * @date 2019-7-13
  */
 public class RestUtil {
 	/**
-	 * ·µ»Ø×Ö·û´®¸ñÊ½Êı¾İ
+	 * è¿”å›å­—ç¬¦ä¸²æ ¼å¼æ•°æ®
 	 * @param rel
 	 * @param response
 	 * @throws IOException
@@ -47,14 +47,14 @@ public class RestUtil {
 	}
 
 	/**
-	 * »ñÈ¡JSON¸ñÊ½ÇëÇóÊı¾İ
+	 * è·å–JSONæ ¼å¼è¯·æ±‚æ•°æ®
 	 * @param request
 	 * @return
 	 */
 	public static String getJsonByRequest(HttpServletRequest request) {
 		String approvalJson = "";
 		String inputLine = "";
-		// ½âÎö´«µİ¹ıÀ´µÄ²ÎÊı
+		// è§£æä¼ é€’è¿‡æ¥çš„å‚æ•°
 		BufferedReader br;
 		try {
 			br = new BufferedReader(new InputStreamReader(request.getInputStream(), "UTF-8"));
@@ -72,7 +72,7 @@ public class RestUtil {
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°ÓÃ»§IPv4µØÖ·
+	 * è·å–å½“å‰ç”¨æˆ·IPv4åœ°å€
 	 * @param request
 	 * @return
 	 */
@@ -108,7 +108,7 @@ public class RestUtil {
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°ÓÃ»§IPv6µØÖ·
+	 * è·å–å½“å‰ç”¨æˆ·IPv6åœ°å€
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
@@ -139,7 +139,7 @@ public class RestUtil {
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°ÓÃ»§¶Ë¿Ú
+	 * è·å–å½“å‰ç”¨æˆ·ç«¯å£
 	 * @param request
 	 * @return
 	 */

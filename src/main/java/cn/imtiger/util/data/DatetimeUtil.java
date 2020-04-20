@@ -6,15 +6,16 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * ÈÕÆÚÊ±¼ä¹¤¾ßÀà
+ * æ—¥æœŸæ—¶é—´å·¥å…·ç±»
  * @author ShenHongtai
- * @date 2019-7-13
+ * @date 2020-4-20
  */
 public class DatetimeUtil {
+	
 	/**
-	 * »ñÈ¡Ö¸¶¨¾àÀëÈÕÆÚÊ±¼ä
-	 * 
-	 * @author ShenHongtai
+	 * è·å–æŒ‡å®šè·ç¦»æ—¥æœŸæ—¶é—´
+	 * @param pastday è·ä»Šå¤šå°‘å¤©
+	 * @return
 	 */
 	public static String getPastDateTime(int pastday) {
 		Date date = new Date();
@@ -23,9 +24,7 @@ public class DatetimeUtil {
 	}
 
 	/**
-	 * ¸ñÊ½»¯ÈÕÆÚÊ±¼ä
-	 * 
-	 * @author ShenHongtai
+	 * æ ¼å¼åŒ–Calendarç±»å‹çš„æ—¥æœŸæ—¶é—´
 	 */
 	public static String formatDateTime(Calendar dateTime, String dateFormat) {
 		if (dateTime == null) {
@@ -36,9 +35,7 @@ public class DatetimeUtil {
 	}
 
 	/**
-	 * ¸ñÊ½»¯ÈÕÆÚÊ±¼ä
-	 * 
-	 * @author ShenHongtai
+	 * æ ¼å¼åŒ–Dateç±»å‹çš„æ—¥æœŸæ—¶é—´
 	 */
 	public static String formatDateTime(Date dateTime, String dateFormat) {
 		if (dateTime == null) {
@@ -49,36 +46,28 @@ public class DatetimeUtil {
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°ÈÕÆÚÊ±¼ä
-	 * 
-	 * @author ShenHongtai
+	 * è·å–æŒ‡å®šæ ¼å¼çš„å½“å‰æ—¥æœŸæ—¶é—´
 	 */
 	public static String getNowDateTime(String dateFormat) {
 		return new SimpleDateFormat(dateFormat).format(Calendar.getInstance().getTime());
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°ÈÕÆÚÊ±¼ä
-	 * 
-	 * @author ShenHongtai
+	 * è·å–é»˜è®¤æ ¼å¼çš„å½“å‰æ—¥æœŸæ—¶é—´
 	 */
 	public static String getNow() {
 		return getNowDateTime("yyyy-MM-dd HH:mm:ss");
 	}
 
 	/**
-	 * »ñÈ¡Ä¬ÈÏ¸ñÊ½Ê±¼ä
-	 * 
-	 * @author ShenHongtai
+	 * è·å–é»˜è®¤æ ¼å¼æ—¶é—´
 	 */
 	public static String getNowTime() {
 		return getNowDateTime("HH:mm:ss");
 	}
 	
 	/**
-	 * »ñÈ¡Ä¬ÈÏ¸ñÊ½ÈÕÆÚ
-	 * 
-	 * @author ShenHongtai
+	 * è·å–é»˜è®¤æ ¼å¼æ—¥æœŸ
 	 */
 	public static String getNowDate() {
 		return getNowDateTime("yyyy-MM-dd");

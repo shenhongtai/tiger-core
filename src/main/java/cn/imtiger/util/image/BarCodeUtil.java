@@ -22,25 +22,25 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 
 /**
- * �����빤����
+ * 条形码工具类
  * @author ShenHongtai
  * @date 2019-7-13
  */
 public class BarCodeUtil {
 	/**
-	 * ����������<br>
-	 * <b>ע��</b>������Ŀ��Ȳ��ܵ���ͼƬ�Ŀ��ȣ��������������,�����������������Ӵ�offset��ֵ
+	 * 生成条形码<br>
+	 * <b>注意</b>条形码的宽度不能等于图片的宽度，否则解析不出来,如果解析不出来，请加大offset的值
 	 * 
 	 * @param contents
-	 *            ����
+	 *            内容
 	 * @param dest
-	 *            ������ͼƬ��ַ
+	 *            条形码图片地址
 	 * @param width
-	 *            ����
+	 *            宽度
 	 * @param height
-	 *            �߶�
+	 *            高度
 	 * @param offset
-	 *            ƫ����
+	 *            偏移量
 	 * @throws WriterException
 	 * @throws FileNotFoundException
 	 * @throws IOException
@@ -49,17 +49,17 @@ public class BarCodeUtil {
 			throws WriterException, FileNotFoundException, IOException {
 
 		/**
-		 * Code128A�ַ��� ������д��ĸ�����֡����ñ����ź�һЩ���Ʒ��� Code128B�ַ��� ������Сд��ĸ�����֡����ñ����š�
-		 * Code128C�ַ��� Ϊ���������С� Code128Auto �ǽ����������ַ�������Ż���ϡ� EAN128��������
-		 * ����UPC/EANָ��������������128�룬���뷽ʽͬcode128���롣 Code39���������ַ����������� ����д��ĸ�Լ�- . $ / + % *
-		 * �ո���ַ�,����"*" ֻ���ڱ�ǿ�ʼ�ͽ����� Code93���������� full ASCII ģʽ����ʹ��ASCIIȫ��128���ַ���
-		 * ��°��루Codabar���������ɣ��ַ����������ֺ�- $ : /. + �Լ�ABCD���ַ��� ����ABCDֻ���ڿ�ʼ���߽�β����Ϊ��ʶ��ʹ�á�
-		 * ����25�루Interleaved 2 of 5���������ɣ������������������ַ�����Ϊ�����Ҹ���Ϊż��, Ϊ�������Զ���ǰ���"0"�� Code11����
-		 * ֻ����11����Ԫ���ֱ���0-9��"-",Ϊ���ͼ������ʣ���ʹ����λ�ļ����롣 MSI������ �����Ǵ�������0-9������һλ�����롣
-		 * EAN13��Ʒ�����Ǵ����֣�����λ����12λ���ڱ���������һλУ���룬���13λ���֡�
-		 * EAN8��Ʒ�����Ǵ����֣�����λ����7λ���ڱ���������һλУ���룬���8λ���֡�
-		 * UPC-A������Ʒ�����Ǵ����֣�����λ����11λ���ڱ���������һλУ���룬 ���12λ����,��Ҫ�������ͼ��ô�ʹ�á�
-		 * UPC-E������Ʒ�����Ǵ����֣�����UPC-A�������ɣ�λ����7λ��������λ����Ϊ0�� �ڱ���������һλУ���룬���8λ���֡�
+		 * Code128A字符集 包括大写字母、数字、常用标点符号和一些控制符。 Code128B字符集 包括大小写字母、数字、常用标点符号。
+		 * Code128C字符集 为纯数字序列。 Code128Auto 是将上述三种字符集最佳优化组合。 EAN128条码生成
+		 * 是由UPC/EAN指定代表意义规则的128码，编码方式同code128条码。 Code39条码生成字符集包括数字 、大写字母以及- . $ / + % *
+		 * 空格等字符,其中"*" 只用于标记开始和结束。 Code93条码生成是 full ASCII 模式，可使用ASCII全部128个字符。
+		 * 库德巴码（Codabar）条码生成，字符集包括数字和- $ : /. + 以及ABCD等字符， 其中ABCD只用于开始或者结尾，作为标识符使用。
+		 * 交叉25码（Interleaved 2 of 5）条码生成，常用于物流管理，字符集仅为数字且个数为偶数, 为奇数将自动在前面加"0"。 Code11条码
+		 * 只允许11种字元，分别是0-9和"-",为降低检查错误率，可使用两位的检验码。 MSI条形码 必须是纯的数字0-9，带有一位检验码。
+		 * EAN13商品条码是纯数字，而且位数是12位，在编码过后外加一位校验码，组成13位数字。
+		 * EAN8商品条码是纯数字，而且位数是7位，在编码过后外加一位校验码，组成8位数字。
+		 * UPC-A条码商品条码是纯数字，而且位数是11位，在编码过后外加一位校验码， 组成12位数字,主要在美国和加拿大使用。
+		 * UPC-E条码商品条码是纯数字，是由UPC-A缩减而成，位数是7位，而且首位必须为0， 在编码过后外加一位校验码，组成8位数字。
 		 */
 		contents = new String(contents.getBytes("UTF-8"), "ISO-8859-1");
 		BitMatrix matrix = new MultiFormatWriter().encode(contents, BarcodeFormat.CODE_128, width - offset, height);
@@ -69,11 +69,11 @@ public class BarCodeUtil {
 	}
 
 	/**
-	 * ����������
+	 * 解析条形码
 	 * 
 	 * @param dest
-	 *            Ҫ�����ͼƬ��ַ
-	 * @return String ����������
+	 *            要解码的图片地址
+	 * @return String 条形码内容
 	 */
 	public static String decode(String dest) throws IOException, NotFoundException {
 		BufferedImage image = ImageIO.read(new File(dest));
@@ -84,37 +84,37 @@ public class BarCodeUtil {
 	}
 
 	/**
-	 * ��Ʒ����У��
+	 * 商品编码校验
 	 * 
-	 * @return String У����
+	 * @return String 校验码
 	 */
 	/**
-	 * �������� 693 69838 0001 3 Ϊ�� ���������Ϊ4�����֣������ҷֱ�Ϊ�� 1-3λ����3λ����Ӧ�������693�����й��Ĺ��Ҵ���֮һ��
-	 * ��690--695�����й���½�Ĵ��룬�ɹ����Ϸ��䣩 4-8λ����5λ����Ӧ�������69838���������������̴��룬�ɳ������룬���ҷ���
-	 * 9-12λ����4λ����Ӧ�������0001�������ų�����Ʒ���룬�ɳ�������ȷ��
-	 * ��13λ����1λ����Ӧ�������3����У���룬����һ�����㷨����ǰ��12λ���ּ�����õ� ����ʽ��13λ�㷨
-	 * 1��ȡ������������λ�ĺͣ�c1=6+3+9+3+0+0=21�� 2��ȡ��������ż��λ�ĺͣ�c2=9+6+8+8+0+1=32��
-	 * 3��������λ�ĺ��롰ż��λ�ĺ͵���������ӡ� 4��ȡ������ĸ�λ����117��117%10=7���� 5����10��ȥ�����λ����10-7=3��
-	 * 6���Եõ�������ȡ��λ������10ȥ�ࣩ3%10=3 �ο���<a
-	 * href="http://baike.baidu.com/view/13740.htm?fr=aladdin">�ٶȰٿ�-������
+	 * 以条形码 693 69838 0001 3 为例 此条形码分为4个部分，从左到右分别为： 1-3位：共3位，对应该条码的693，是中国的国家代码之一。
+	 * （690--695都是中国大陆的代码，由国际上分配） 4-8位：共5位，对应该条码的69838，代表着生产厂商代码，由厂商申请，国家分配
+	 * 9-12位：共4位，对应该条码的0001，代表着厂内商品代码，由厂商自行确定
+	 * 第13位：共1位，对应该条码的3，是校验码，依据一定的算法，由前面12位数字计算而得到 （公式第13位算法
+	 * 1：取出该数的奇数位的和，c1=6+3+9+3+0+0=21； 2：取出该数的偶数位的和，c2=9+6+8+8+0+1=32；
+	 * 3：将奇数位的和与“偶数位的和的三倍”相加。 4：取出结果的个位数：117（117%10=7）； 5：用10减去这个个位数：10-7=3；
+	 * 6：对得到的数再取个位数（对10去余）3%10=3 参考：<a
+	 * href="http://baike.baidu.com/view/13740.htm?fr=aladdin">百度百科-条形码
 	 */
 	public static String checksum(String countryCode, String factoryCode, String productCode) throws Exception {
 		String temp = countryCode + factoryCode + productCode;
 
 		if (!(isNumber(countryCode) && isNumber(factoryCode) && isNumber(productCode))) {
-			throw new Exception("���ܺ��з������ַ�");
+			throw new Exception("不能含有非数字字符");
 		}
 		int defaultCountryCode = 3;
 		if (countryCode.length() != defaultCountryCode) {
-			throw new Exception("���ҵ������벻�Ϲ淶,����3λ");
+			throw new Exception("国家地区代码不合规范,必须3位");
 		}
 		int defaultFactoryCode = 5;
 		if (factoryCode.length() != defaultFactoryCode) {
-			throw new Exception("���̴��벻�Ϲ淶,����5λ");
+			throw new Exception("厂商代码不合规范,必须5位");
 		}
 		int defaultProductCode = 4;
 		if (productCode.length() != defaultProductCode) {
-			throw new Exception("��Ʒ���벻�Ϲ淶,����4λ");
+			throw new Exception("产品代码不合规范,必须4位");
 		}
 
 		char[] code = temp.toCharArray();
@@ -134,10 +134,10 @@ public class BarCodeUtil {
 	}
 
 	/**
-	 * У������
+	 * 校验数字
 	 * 
 	 * @param number
-	 *            ����
+	 *            数字
 	 * @return Boolean
 	 */
 	public static boolean isNumber(String number) {
@@ -149,12 +149,12 @@ public class BarCodeUtil {
 	}
 
 	public static void main(String[] args) throws Exception {
-		// ����һά��
+		// 生成一维码
 		// BarCodeUtil.encode(checksum("695", "32321", "2133"), "D:\\Target.jpg", 300,
 		// 60, 10);
 		BarCodeUtil.encode("CLBX201712260001", "D:\\Target.jpg", 360, 60, 10);
-		// ʶ��һά��
-		System.out.println("�������:" + BarCodeUtil.decode("D:\\Target.jpg"));
+		// 识别一维码
+		System.out.println("解析结果:" + BarCodeUtil.decode("D:\\Target.jpg"));
 	}
 
 }

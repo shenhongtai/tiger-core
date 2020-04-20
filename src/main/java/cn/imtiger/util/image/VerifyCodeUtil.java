@@ -17,22 +17,22 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 /**
- * ÑéÖ¤Âë¹¤¾ßÀà
+ * éªŒè¯ç å·¥å…·ç±»
  * @author ShenHongtai
  * @date 2019-7-13
  */
 public class VerifyCodeUtil {
 	/**
-	 * ³ı1,0,I,O¼¸¸öÈİÒ×»ìÏıµÄ×Ö·ûÍâÈ«²¿Êı×Ö¼°´óĞ´×ÖÄ¸
+	 * é™¤1,0,I,Oå‡ ä¸ªå®¹æ˜“æ··æ·†çš„å­—ç¬¦å¤–å…¨éƒ¨æ•°å­—åŠå¤§å†™å­—æ¯
 	 */
 	public static final String VERIFY_CODES = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
 	private static Random random = new Random();
 
 	/**
-	 * Éú³ÉÑéÖ¤Âë
+	 * ç”ŸæˆéªŒè¯ç 
 	 * 
 	 * @param verifySize
-	 *            ÑéÖ¤Âë³¤¶È
+	 *            éªŒè¯ç é•¿åº¦
 	 * @return
 	 */
 	public static String getCode(int verifySize) {
@@ -40,12 +40,12 @@ public class VerifyCodeUtil {
 	}
 
 	/**
-	 * Ö¸¶¨×Ö·ûÔ´Éú³ÉÑéÖ¤Âë
+	 * æŒ‡å®šå­—ç¬¦æºç”ŸæˆéªŒè¯ç 
 	 * 
 	 * @param verifySize
-	 *            ÑéÖ¤Âë³¤¶È
+	 *            éªŒè¯ç é•¿åº¦
 	 * @param sources
-	 *            ÑéÖ¤Âë×Ö·ûÔ´
+	 *            éªŒè¯ç å­—ç¬¦æº
 	 * @return
 	 */
 	public static String getCodeByCharacters(int verifySize, String characters) {
@@ -62,7 +62,7 @@ public class VerifyCodeUtil {
 	}
 
 	/**
-	 * Éú³ÉËæ»úÑéÖ¤ÂëÎÄ¼ş,²¢·µ»ØÑéÖ¤ÂëÖµ
+	 * ç”ŸæˆéšæœºéªŒè¯ç æ–‡ä»¶,å¹¶è¿”å›éªŒè¯ç å€¼
 	 * 
 	 * @param w
 	 * @param h
@@ -78,7 +78,7 @@ public class VerifyCodeUtil {
 	}
 
 	/**
-	 * Êä³öËæ»úÑéÖ¤ÂëÍ¼Æ¬Á÷,²¢·µ»ØÑéÖ¤ÂëÖµ
+	 * è¾“å‡ºéšæœºéªŒè¯ç å›¾ç‰‡æµ,å¹¶è¿”å›éªŒè¯ç å€¼
 	 * 
 	 * @param w
 	 * @param h
@@ -94,7 +94,7 @@ public class VerifyCodeUtil {
 	}
 
 	/**
-	 * Éú³ÉÖ¸¶¨ÑéÖ¤ÂëÍ¼ÏñÎÄ¼ş
+	 * ç”ŸæˆæŒ‡å®šéªŒè¯ç å›¾åƒæ–‡ä»¶
 	 * 
 	 * @param w
 	 * @param h
@@ -121,8 +121,8 @@ public class VerifyCodeUtil {
 	}
 
 	/**
-	 * Êä³öÖ¸¶¨ÑéÖ¤ÂëÍ¼Æ¬Á÷
-	 * £¨Ê¹ÓÃµ½Algerian×ÖÌå£¬ÏµÍ³ÀïÃ»ÓĞµÄ»°ĞèÒª°²×°×ÖÌå£©
+	 * è¾“å‡ºæŒ‡å®šéªŒè¯ç å›¾ç‰‡æµ
+	 * ï¼ˆä½¿ç”¨åˆ°Algerianå­—ä½“ï¼Œç³»ç»Ÿé‡Œæ²¡æœ‰çš„è¯éœ€è¦å®‰è£…å­—ä½“ï¼‰
 	 * 
 	 * @param w
 	 * @param h
@@ -146,18 +146,18 @@ public class VerifyCodeUtil {
 		}
 		Arrays.sort(fractions);
 
-		// ÉèÖÃ±ß¿òÉ«
+		// è®¾ç½®è¾¹æ¡†è‰²
 		g2.setColor(Color.GRAY);
 		g2.fillRect(0, 0, w, h);
 
-		// ÉèÖÃ±³¾°É«
+		// è®¾ç½®èƒŒæ™¯è‰²
 		Color c = getRandColor(200, 250);
 		g2.setColor(c);
 		g2.fillRect(0, 2, w, h - 4);
 
-		// »æÖÆ¸ÉÈÅÏß
+		// ç»˜åˆ¶å¹²æ‰°çº¿
 		Random random = new Random();
-		// ÉèÖÃÏßÌõµÄÑÕÉ«
+		// è®¾ç½®çº¿æ¡çš„é¢œè‰²
 		g2.setColor(getRandColor(160, 200));
 		int twenty = 20;
 		for (int i = 0; i < twenty; i++) {
@@ -168,8 +168,8 @@ public class VerifyCodeUtil {
 			g2.drawLine(x, y, x + xl + 40, y + yl + 20);
 		}
 
-		// Ìí¼ÓÔëµã
-		// ÔëÉùÂÊ
+		// æ·»åŠ å™ªç‚¹
+		// å™ªå£°ç‡
 		float yawpRate = 0.05f;
 		int area = (int) (yawpRate * w * h);
 		for (int i = 0; i < area; i++) {
@@ -179,7 +179,7 @@ public class VerifyCodeUtil {
 			image.setRGB(x, y, rgb);
 		}
 
-		// Ê¹Í¼Æ¬Å¤Çú
+		// ä½¿å›¾ç‰‡æ‰­æ›²
 		shear(g2, w, h, c);
 
 		g2.setColor(getRandColor(100, 160));
@@ -192,8 +192,8 @@ public class VerifyCodeUtil {
 			affine.setToRotation(Math.PI / 4 * rand.nextDouble() * (rand.nextBoolean() ? 1 : -1),
 					(w / verifySize) * i + fontSize / 2, h / 2);
 			g2.setTransform(affine);
-			// drawChars(data - Òª»æÖÆµÄ×Ö·ûÊı×é, offset - Êı¾İµÄ³õÊ¼Æ«ÒÆÁ¿, length - Òª»æÖÆµÄ×Ö·ûÊı, x - ÎÄ±¾»ùÏßµÄ
-			// x×ø±ê, y - ÎÄ±¾»ùÏßµÄ y×ø±ê)
+			// drawChars(data - è¦ç»˜åˆ¶çš„å­—ç¬¦æ•°ç»„, offset - æ•°æ®çš„åˆå§‹åç§»é‡, length - è¦ç»˜åˆ¶çš„å­—ç¬¦æ•°, x - æ–‡æœ¬åŸºçº¿çš„
+			// xåæ ‡, y - æ–‡æœ¬åŸºçº¿çš„ yåæ ‡)
 			g2.drawChars(chars, i, 1, ((w - 10) / verifySize) * i + 5, h / 2 + fontSize / 2 - 5);
 		}
 

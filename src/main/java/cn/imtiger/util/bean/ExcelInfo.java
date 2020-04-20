@@ -4,23 +4,23 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Excel表格导出对象
+ * Excel琛ㄦ牸瀵煎嚭瀵硅薄
  * @author shen_hongtai
  * @date 2019-7-13
  */
 public class ExcelInfo implements Serializable {
     private static final long serialVersionUID = 4444017239100620999L;
 
-    // 表头
+    // 琛ㄥご
     private List<String> titles;
     
-    // 列宽
+    // 鍒楀
     private List<Integer> columnsWidth;
 
-    // 数据
+    // 鏁版嵁
     private List<List<Object>> rows;
 
-    // 页签名称
+    // 椤电鍚嶇О
     private String name;
 
     public List<Integer> getColumnsWidth() {

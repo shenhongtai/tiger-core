@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import cn.imtiger.constant.DatabaseConst;
 
 /**
- * SQL¹¤¾ßÀà
+ * SQLå·¥å…·ç±»
  * @author ShenHongtai
  * @date 2019-10-11
  */
@@ -19,7 +19,7 @@ public class SQLUtil {
 	private static final Logger logger = LoggerFactory.getLogger(SQLUtil.class);
 
 	/**
-	 * »ñÈ¡Êı¾İ¿âÀàĞÍ
+	 * è·å–æ•°æ®åº“ç±»å‹
 	 * @param connection
 	 * @return
 	 * @throws SQLException
@@ -65,20 +65,20 @@ public class SQLUtil {
 					} else if (name.startsWith("IBM Informix Dynamic Server")) {
 						databaseType = DatabaseConst.GBASE;
 					} else {
-						logger.error("²»ÊÜÖ§³ÖµÄÊı¾İ¿â³§ÉÌ£º" + name);
+						logger.error("ä¸å—æ”¯æŒçš„æ•°æ®åº“å‚å•†ï¼š" + name);
 					}
 				}
 			} else {
-				logger.error("Êı¾İ¿âÔªÊı¾İ²»ÄÜÎª¿Õ");
+				logger.error("æ•°æ®åº“å…ƒæ•°æ®ä¸èƒ½ä¸ºç©º");
 			}
 		} else {
-			logger.error("Êı¾İ¿âÁ¬½Ó²»ÄÜÎª¿Õ");
+			logger.error("æ•°æ®åº“è¿æ¥ä¸èƒ½ä¸ºç©º");
 		}
 		return databaseType;
 	}
 
 	/**
-	 * °ü×°·ÖÒ³SQL
+	 * åŒ…è£…åˆ†é¡µSQL
 	 * @param databaseType
 	 * @param pageNumber
 	 * @param pageSize
@@ -122,7 +122,7 @@ public class SQLUtil {
 				SQLUtil.forEnterpriseDbPaginate(sql, pageNumber, pageSize, select, sqlExceptSelect);
 				break;
 			default:
-				logger.error("²»ÊÜÖ§³ÖµÄÊı¾İ¿âÀàĞÍ£º" + databaseType);
+				logger.error("ä¸å—æ”¯æŒçš„æ•°æ®åº“ç±»å‹ï¼š" + databaseType);
 			}
 		}
 		return sql.toString();
@@ -133,7 +133,7 @@ public class SQLUtil {
 				+ "FROM  ( {1} " + ") TEMP_TABLE) GLOBAL_TABLE " + "WHERE GLOBAL_TABLE.__MYSEQ__>{2}");
 
 	/**
-	 * SQLServer2005¼°ÒÔÉÏ·ÖÒ³
+	 * SQLServer2005åŠä»¥ä¸Šåˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -152,7 +152,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * KingBaseÊı¾İ¿â
+	 * KingBaseæ•°æ®åº“
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -171,7 +171,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * EnterpriseÊı¾İ¿â·ÖÒ³
+	 * Enterpriseæ•°æ®åº“åˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -191,7 +191,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * PostgreSQLÊı¾İ¿â·ÖÒ³
+	 * PostgreSQLæ•°æ®åº“åˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -207,7 +207,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * ´ïÃÎÊı¾İ¿â·ÖÒ³
+	 * è¾¾æ¢¦æ•°æ®åº“åˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -222,7 +222,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * DB2·ÖÒ³
+	 * DB2åˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -241,7 +241,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * MySQLÊı¾İ¿â·ÖÒ³
+	 * MySQLæ•°æ®åº“åˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -258,7 +258,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * GBaseÊı¾İ¿â·ÖÒ³
+	 * GBaseæ•°æ®åº“åˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize
@@ -275,7 +275,7 @@ public class SQLUtil {
 	}
 
 	/**
-	 * OracleÊı¾İ¿â·ÖÒ³
+	 * Oracleæ•°æ®åº“åˆ†é¡µ
 	 * @param sql
 	 * @param pageNumber
 	 * @param pageSize

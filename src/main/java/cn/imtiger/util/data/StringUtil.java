@@ -30,9 +30,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 
 /**
- * Êı¾İ´¦Àí¹¤¾ßÀà
+ * å­—ç¬¦ä¸²å·¥å…·ç±»
  * @author ShenHongtai
- * @date 2019-7-13
+ * @date 2020-4-20
  */
 public class StringUtil {
 	private static int ZIP_BLOCK_SIZE = 2048;
@@ -40,7 +40,7 @@ public class StringUtil {
 			"oracle.sql.BLOB", "oracle.sql.CLOB" };
     
 	/**
-	 * Í³¼Æ×Ö·û´®ÖĞ×Ó×Ö·û´®³öÏÖ´ÎÊı
+	 * ç»Ÿè®¡å­—ç¬¦ä¸²ä¸­å­å­—ç¬¦ä¸²å‡ºç°æ¬¡æ•°
 	 * @param str
 	 * @param substr
 	 * @return
@@ -57,7 +57,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+	 * è¯»å–é…ç½®æ–‡ä»¶
 	 * @param filePath
 	 * @param key
 	 * @return
@@ -65,19 +65,19 @@ public class StringUtil {
 	public static String getProperty(String filePath, String key) {
 		Properties properties = new Properties();
 		BufferedReader bufferedReader = null;
-		// Ê¹ÓÃInPutStreamÁ÷¶ÁÈ¡propertiesÎÄ¼ş
+		// ä½¿ç”¨InPutStreamæµè¯»å–propertiesæ–‡ä»¶
 		try {
 			bufferedReader = new BufferedReader(new FileReader(filePath));
 			properties.load(bufferedReader);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// »ñÈ¡key¶ÔÓ¦µÄvalueÖµ
+		// è·å–keyå¯¹åº”çš„valueå€¼
 		return properties.getProperty(key);
 	}
 	
 	/**
-	 * String×ªBlob
+	 * Stringè½¬Blob
 	 * @param str
 	 * @param conn
 	 * @return
@@ -95,7 +95,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ×Ö·û´®µ¥ÒıºÅÌæ»»³ÉË«ÒıºÅ
+	 * å­—ç¬¦ä¸²å•å¼•å·æ›¿æ¢æˆåŒå¼•å·
 	 * @param str
 	 * @return
 	 */
@@ -106,7 +106,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Êı×éÊÇ·ñ´æÔÚ×Ö·û´®
+	 * æ•°ç»„æ˜¯å¦å­˜åœ¨å­—ç¬¦ä¸²
 	 * @param str
 	 * @param strArr
 	 * @return
@@ -121,7 +121,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½á¹û¼¯×ªJSON
+	 * ç»“æœé›†è½¬JSON
 	 * @param rs
 	 * @return
 	 * @throws SQLException
@@ -131,7 +131,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½á¹û¼¯×ªJSONArray
+	 * ç»“æœé›†è½¬JSONArray
 	 * @param rs
 	 * @return
 	 * @throws SQLException
@@ -141,7 +141,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * List×ªJSONArray
+	 * Listè½¬JSONArray
 	 * @param list
 	 * @return
 	 */
@@ -150,7 +150,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * List×ªJSONString
+	 * Listè½¬JSONString
 	 * @param list
 	 * @return
 	 */
@@ -159,7 +159,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½á¹û¼¯×ªList
+	 * ç»“æœé›†è½¬List
 	 * @param rs
 	 * @return
 	 * @throws SQLException
@@ -179,7 +179,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * MD5¼ÓÃÜ
+	 * MD5åŠ å¯†
 	 * @param data
 	 * @return
 	 */
@@ -188,7 +188,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * ÊÇ·ñImageÀàĞÍÁĞ
+	 * æ˜¯å¦Imageç±»å‹åˆ—
 	 * @param strClsName
 	 * @return
 	 */
@@ -203,7 +203,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Çå³ı×Ö·û´®¿Õ¸ñ
+	 * æ¸…é™¤å­—ç¬¦ä¸²ç©ºæ ¼
 	 * @param data
 	 * @return
 	 */
@@ -218,7 +218,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Çå³ı×Ö·û´®Ö¸¶¨×Ö·û
+	 * æ¸…é™¤å­—ç¬¦ä¸²æŒ‡å®šå­—ç¬¦
 	 * @param data
 	 * @param chars
 	 * @return
@@ -234,7 +234,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½«×Ö·û´®Êı×éÓÃ±êÊ¶Á¬½ÓÎª×Ö·û´®
+	 * å°†å­—ç¬¦ä¸²æ•°ç»„ç”¨æ ‡è¯†è¿æ¥ä¸ºå­—ç¬¦ä¸²
 	 * @param stringArray
 	 * @param symbol
 	 * @return
@@ -249,7 +249,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½«×Ö·û´®ÓÃ±êÊ¶·Ö¸ôÎª×Ö·û´®Êı×é
+	 * å°†å­—ç¬¦ä¸²ç”¨æ ‡è¯†åˆ†éš”ä¸ºå­—ç¬¦ä¸²æ•°ç»„
 	 * @param string
 	 * @param symbol
 	 * @return
@@ -264,7 +264,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½«×Ö·û´®ÓÃ±êÊ¶·Ö¸ôÎªVectorÊı×é
+	 * å°†å­—ç¬¦ä¸²ç”¨æ ‡è¯†åˆ†éš”ä¸ºVectoræ•°ç»„
 	 * @param string
 	 * @param symbol
 	 * @return
@@ -279,7 +279,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½«VectorÊı×éÓÃ±êÊ¶Á¬½ÓÎª×Ö·û´®
+	 * å°†Vectoræ•°ç»„ç”¨æ ‡è¯†è¿æ¥ä¸ºå­—ç¬¦ä¸²
 	 * @param stringVector
 	 * @param symbol
 	 * @return
@@ -294,7 +294,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ½ğ¶î¸ñÊ½»¯
+	 * é‡‘é¢æ ¼å¼åŒ–
 	 * @param value
 	 * @return
 	 */
@@ -308,7 +308,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Ö¸¶¨Î»ÖÃÌî³ä×Ö·û´®
+	 * æŒ‡å®šä½ç½®å¡«å……å­—ç¬¦ä¸²
 	 * @param psStr
 	 * @param psC
 	 * @param psLen
@@ -328,7 +328,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * GBK×ªÂëÎªUnicode
+	 * GBKè½¬ç ä¸ºUnicode
 	 * @param original
 	 * @return
 	 */
@@ -345,7 +345,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Unicode×ªÂëÎªGBK
+	 * Unicodeè½¬ç ä¸ºGBK
 	 * @param original
 	 * @return
 	 */
@@ -362,7 +362,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Êı¾İ½âÑ¹Ëõ
+	 * æ•°æ®è§£å‹ç¼©
 	 * @param pBytesInput
 	 * @return
 	 */
@@ -396,7 +396,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Êı¾İÑ¹Ëõ
+	 * æ•°æ®å‹ç¼©
 	 * @param pBytesInput
 	 * @return
 	 */
@@ -434,7 +434,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Base64×ªÎªBytes
+	 * Base64è½¬ä¸ºBytes
 	 * @param pText
 	 * @return
 	 */
@@ -443,7 +443,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Bytes×ªÎªBase64
+	 * Bytesè½¬ä¸ºBase64
 	 * @param pBytes
 	 * @return
 	 */
@@ -452,7 +452,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Éú³É32Î»Ëæ»úÂë
+	 * ç”Ÿæˆ32ä½éšæœºç 
 	 * @return
 	 */
 	public static String createUUID() {

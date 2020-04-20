@@ -6,14 +6,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 /**
- * ¼¯ºÏ¹¤¾ßÀà
- * @author ShenHongtai
- * @date 2019-10-11
+ * é›†åˆå·¥å…·ç±»
+ * @author shen_hongtai
+ * @date 2020-4-20
  */
 public class CollectionUtil {
+	
 	/**
-	 * ÅúÁ¿½«MapµÄkeyÖµÈ«²¿×ª»»Îª´óĞ´
+	 * å°†Mapè½¬æ¢ä¸ºJSONObject
+	 * @param map
+	 * @return
+	 */
+	public static JSONObject toJSONObject(Map<String, Object> map) {
+		return JSONObject.parseObject(JSON.toJSONString(map));
+	}
+	
+	/**
+	 * å°†List<Map>è½¬æ¢ä¸ºJSONArray
+	 * @param map
+	 * @return
+	 */
+	public static JSONArray toJSONArray(List<Map<String, Object>> list) {
+		return JSONArray.parseArray(JSON.toJSONString(list));
+	}
+	
+	/**
+	 * æ‰¹é‡å°†Mapçš„keyå€¼å…¨éƒ¨è½¬æ¢ä¸ºå¤§å†™
 	 * @param list
 	 * @return
 	 */
@@ -26,7 +49,7 @@ public class CollectionUtil {
 	}
 
 	/**
-	 * MapµÄkeyÖµÈ«²¿×ª»»Îª´óĞ´
+	 * Mapçš„keyå€¼å…¨éƒ¨è½¬æ¢ä¸ºå¤§å†™
 	 * @param map
 	 * @return
 	 */
@@ -40,7 +63,7 @@ public class CollectionUtil {
 	}
 
 	/**
-	 * ÅúÁ¿½«MapµÄkeyÖµÈ«²¿×ª»»ÎªĞ¡Ğ´
+	 * æ‰¹é‡å°†Mapçš„keyå€¼å…¨éƒ¨è½¬æ¢ä¸ºå°å†™
 	 * @param list
 	 * @return
 	 */
@@ -53,7 +76,7 @@ public class CollectionUtil {
 	}
 
 	/**
-	 * MapµÄkeyÖµÈ«²¿×ª»»ÎªĞ¡Ğ´
+	 * Mapçš„keyå€¼å…¨éƒ¨è½¬æ¢ä¸ºå°å†™
 	 * @param map
 	 * @return
 	 */

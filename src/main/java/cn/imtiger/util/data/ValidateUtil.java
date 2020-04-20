@@ -1,14 +1,14 @@
 package cn.imtiger.util.data;
 
 /**
- * Êı¾İĞ£Ñé¹¤¾ßÀà
+ * æ ¡éªŒå·¥å…·ç±»
  * @author ShenHongtai
- * @date 2019-10-10
+ * @date 2020-4-20
  */
 public class ValidateUtil {
 
 	/**
-	 * Ğ£ÑéĞ¡Ê±ÊıÊÇ·ñºÏ·¨
+	 * æ ¡éªŒå°æ—¶æ•°æ˜¯å¦åˆæ³•
 	 * @param value
 	 * @return
 	 */
@@ -20,7 +20,7 @@ public class ValidateUtil {
 	}
 
 	/**
-	 * Ğ£ÑéĞ¡Ê±ÊıÊÇ·ñºÏ·¨
+	 * æ ¡éªŒå°æ—¶æ•°æ˜¯å¦åˆæ³•
 	 * @param value
 	 * @return
 	 */
@@ -29,7 +29,7 @@ public class ValidateUtil {
 	}
 	
 	/**
-	 * Ğ£Ñé·ÖÖÓÊıÊÇ·ñºÏ·¨
+	 * æ ¡éªŒåˆ†é’Ÿæ•°æ˜¯å¦åˆæ³•
 	 * @param value
 	 * @return
 	 */
@@ -38,7 +38,7 @@ public class ValidateUtil {
 	}
 
 	/**
-	 * Ğ£Ñé·ÖÖÓÊıÊÇ·ñºÏ·¨
+	 * æ ¡éªŒåˆ†é’Ÿæ•°æ˜¯å¦åˆæ³•
 	 * @param value
 	 * @return
 	 */
@@ -47,7 +47,7 @@ public class ValidateUtil {
 	}
 
 	/**
-	 * Ğ£ÑéÃëÊıÊÇ·ñºÏ·¨
+	 * æ ¡éªŒç§’æ•°æ˜¯å¦åˆæ³•
 	 * @param value
 	 * @return
 	 */
@@ -59,7 +59,7 @@ public class ValidateUtil {
 	}
 
 	/**
-	 * Ğ£ÑéÃëÊıÊÇ·ñºÏ·¨
+	 * æ ¡éªŒç§’æ•°æ˜¯å¦åˆæ³•
 	 * @param value
 	 * @return
 	 */
@@ -68,7 +68,7 @@ public class ValidateUtil {
 	}
 	
     /**
-     * Ğ£Ñé×Ö·û´®²»Îª¿Õ
+     * æ ¡éªŒå­—ç¬¦ä¸²ä¸ä¸ºç©º
      * @param value
      * @return
      */
@@ -77,7 +77,7 @@ public class ValidateUtil {
     }
 
     /**
-     * Ğ£Ñé×Ö·û´®Îª¿Õ
+     * æ ¡éªŒå­—ç¬¦ä¸²ä¸ºç©º
      * @param value
      * @return
      */
@@ -86,7 +86,7 @@ public class ValidateUtil {
     }
     
     /**
-     * Ğ£ÑéÊı×é²»Îª¿Õ
+     * æ ¡éªŒæ•°ç»„ä¸ä¸ºç©º
      * @param value
      * @return
      */
@@ -95,7 +95,7 @@ public class ValidateUtil {
     }
         
     /**
-     * Ğ£ÑéÊı×éÎª¿Õ
+     * æ ¡éªŒæ•°ç»„ä¸ºç©º
      * @param value
      * @return
      */
@@ -104,7 +104,7 @@ public class ValidateUtil {
     }
     
     /**
-     * Ğ£Ñé×Ö·û´®·Ç¿Õ°×
+     * æ ¡éªŒå­—ç¬¦ä¸²éç©ºç™½
      * @param str
      * @return
      */
@@ -113,7 +113,7 @@ public class ValidateUtil {
 	}
     
 	/**
-	 * Ğ£Ñé×Ö·û´®Îª¿Õ°×
+	 * æ ¡éªŒå­—ç¬¦ä¸²ä¸ºç©ºç™½
 	 * @param value
 	 * @return
 	 */
@@ -131,7 +131,7 @@ public class ValidateUtil {
     }
 	
 	/**
-	 * Ğ£Ñé×Ö·û´®ÊÇ·ñÎª´¿×ÖÄ¸
+	 * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºçº¯å­—æ¯
 	 * @param str
 	 * @return
 	 */
@@ -149,7 +149,7 @@ public class ValidateUtil {
     }
 	
 	/**
-	 * Ğ£Ñé×Ö·û´®ÊÇ·ñÎª´¿×ÖÄ¸
+	 * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºçº¯å­—æ¯
 	 * @param str
 	 * @return
 	 */
@@ -163,7 +163,7 @@ public class ValidateUtil {
 	}
 	
 	/**
-	 * Ğ£Ñé×Ö·û´®ÊÇ·ñÎª´¿Êı×Ö
+	 * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºçº¯æ•°å­—
 	 * @param str
 	 * @return
 	 */
@@ -181,7 +181,7 @@ public class ValidateUtil {
     }
 	
 	/**
-	 * Ğ£Ñé×Ö·û´®ÊÇ·ñÎª´¿Êı×Ö
+	 * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºçº¯æ•°å­—
 	 * @param str
 	 * @return
 	 */
@@ -195,7 +195,7 @@ public class ValidateUtil {
 	}
 
     /**
-     * Ğ£Ñé×Ö·û´®ÊÇ·ñÎªÓÊÏä¸ñÊ½
+     * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºé‚®ç®±æ ¼å¼
      * @param email
      * @return
      */
@@ -205,7 +205,7 @@ public class ValidateUtil {
 	}
     
     /**
-     * Ğ£Ñé×Ö·û´®ÊÇ·ñÎªÊÖ»úºÅÂë¸ñÊ½
+     * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºæ‰‹æœºå·ç æ ¼å¼
      * @param mobile
      * @return
      */
@@ -215,7 +215,7 @@ public class ValidateUtil {
 	}
 	
 	/**
-	 * Ğ£Ñé×Ö·û´®ÊÇ·ñÎªIPv4µØÖ·¸ñÊ½
+	 * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºIPv4åœ°å€æ ¼å¼
 	 * @param ip
 	 * @return
 	 */
@@ -225,7 +225,7 @@ public class ValidateUtil {
 	}
 	
 	/**
-	 * Ğ£ÑéµØÖ·ÊÇ·ñÎªÎÄ¼ş
+	 * æ ¡éªŒåœ°å€æ˜¯å¦ä¸ºæ–‡ä»¶
 	 * @param url
 	 * @return
 	 */
@@ -234,7 +234,7 @@ public class ValidateUtil {
 	}
 	
 	/**
-	 * Ğ£Ñé×Ö·û´®ÊÇ·ñÎªÎÄ¼şÃû
+	 * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºæ–‡ä»¶å
 	 * @param fileName
 	 * @return
 	 */
@@ -244,7 +244,7 @@ public class ValidateUtil {
 	}
 	
 	/**
-	 * Ğ£Ñé×Ö·û´®ÊÇ·ñÎªÖ¸¶¨ÀàĞÍµÄÎÄ¼şÃû
+	 * æ ¡éªŒå­—ç¬¦ä¸²æ˜¯å¦ä¸ºæŒ‡å®šç±»å‹çš„æ–‡ä»¶å
 	 * @param fileName
 	 * @param extendType
 	 * @return

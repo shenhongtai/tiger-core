@@ -3,18 +3,18 @@ package cn.imtiger.util.sys;
 import cn.imtiger.util.data.ValidateUtil;
 
 /**
- * °²È«¹ÜÀí¹¤¾ßÀà
+ * å®‰å…¨ç®¡ç†å·¥å…·ç±»
  * @author ShenHongtai
  * @date 2019-7-13
  */
 public class SecurityUtil {
 	/**
-	 * Êı¾İ¿â¹Ø¼ü×Ö
+	 * æ•°æ®åº“å…³é”®å­—
 	 */
 	static String[] defaultInjectWords = {"SELECT", "INSERT", "DELETE", "UPDATE", "AND", "DROP", "EXEC", "EXECUTE", "COUNT", "CHR", "MID", "MASTER", "TRUNCATE", "CHAR", "DECLARE", "SITENAME", "NET USER", "XP_CMDSHELL", "OR", "LIKE'", "LIKE", "CREATE", "UNION", "WHERE", "ORDER", "BY", "TABLE", "FROM", "GRANT", "USE", "GROUP_CONCAT", "COLUMN_NAME", "INFORMATION_SCHEMA.COLUMNS", "TABLE_SCHEMA", "*", "%", ";", "--", "//", "%", "#", "||"};
 	
 	/**
-	 * ×Ö·û´®¹Ø¼ü×Ö¼ì²â
+	 * å­—ç¬¦ä¸²å…³é”®å­—æ£€æµ‹
 	 * @param injectStr
 	 * @return
 	 */

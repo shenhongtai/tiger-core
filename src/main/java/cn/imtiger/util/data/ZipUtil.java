@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ZIP压缩
+ * ZIP鍘嬬缉
  * @author ShenHongtai
  * @date 2019-12-10
  */
@@ -30,14 +30,14 @@ public class ZipUtil {
 			zos = new ZipOutputStream(fos);
 			writeZip(new File(sourcePath), "", zos);
 		} catch (FileNotFoundException var13) {
-			log.error("创建压缩文件失败", var13);
+			log.error("鍒涘缓鍘嬬缉鏂囦欢澶辫触", var13);
 		} finally {
 			try {
 				if (zos != null) {
 					zos.close();
 				}
 			} catch (IOException var12) {
-				log.error("创建压缩文件失败", var12);
+				log.error("鍒涘缓鍘嬬缉鏂囦欢澶辫触", var12);
 			}
 
 		}
@@ -76,16 +76,16 @@ public class ZipUtil {
 						zos.flush();
 					}
 				} catch (FileNotFoundException var18) {
-					log.error("创建压缩文件失败", var18);
+					log.error("鍒涘缓鍘嬬缉鏂囦欢澶辫触", var18);
 				} catch (IOException var19) {
-					log.error("创建压缩文件失败", var19);
+					log.error("鍒涘缓鍘嬬缉鏂囦欢澶辫触", var19);
 				} finally {
 					try {
 						if (dis != null) {
 							dis.close();
 						}
 					} catch (IOException var17) {
-						log.error("创建压缩文件失败", var17);
+						log.error("鍒涘缓鍘嬬缉鏂囦欢澶辫触", var17);
 					}
 
 				}

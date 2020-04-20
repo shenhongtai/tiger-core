@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ÎÄ¼ş²Ù×÷¹¤¾ßÀà
+ * æ–‡ä»¶æ“ä½œå·¥å…·ç±»
  * @author shen_hongtai
  * @date 2019-7-25
  */
 public class FileTransferUtil {
 	/**
-	 * ¸ñÊ½»¯ÎÄ¼şÃû×Ö·û¼¯
+	 * æ ¼å¼åŒ–æ–‡ä»¶åå­—ç¬¦é›†
 	 * 
 	 * @param request
 	 * @param fileName
-	 * @return String ÎÄ¼şÃû
+	 * @return String æ–‡ä»¶å
 	 * @throws UnsupportedEncodingException
 	 */
 	public static String formatCharsetForFileName(HttpServletRequest request, String fileName)
@@ -46,12 +46,12 @@ public class FileTransferUtil {
 	}
 
 	/**
-	 * ´Ó³ÌĞò×ÊÔ´Â·¾¶ÏÂÔØÎÄ¼ş
+	 * ä»ç¨‹åºèµ„æºè·¯å¾„ä¸‹è½½æ–‡ä»¶
 	 * 
-	 * @param request  ÇëÇó¶ÔÏó
-	 * @param response ·µ»Ø¶ÔÏó
-	 * @param fileName ÎÄ¼şÃû
-	 * @param filePath ÎÄ¼şÂ·¾¶
+	 * @param request  è¯·æ±‚å¯¹è±¡
+	 * @param response è¿”å›å¯¹è±¡
+	 * @param fileName æ–‡ä»¶å
+	 * @param filePath æ–‡ä»¶è·¯å¾„
 	 * @throws Exception
 	 */
 	public static void downloadFileFromResource(HttpServletRequest request, HttpServletResponse response,

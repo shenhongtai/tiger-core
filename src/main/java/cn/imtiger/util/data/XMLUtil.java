@@ -14,13 +14,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * XML½âÎö
+ * XMLè§£æ
  * @author ShenHongtai
  * @date 2019-7-13
  */
 public class XMLUtil {
 	/**
-	 * XML×ª»»ÎªJSON
+	 * XMLè½¬æ¢ä¸ºJSON
 	 * @param xml
 	 * @return com.alibaba.fastjson.JSONObject
 	 * @throws DocumentException
@@ -30,15 +30,15 @@ public class XMLUtil {
 	}
 	
 	/**
-	 * XML×ª»»ÎªMap
+	 * XMLè½¬æ¢ä¸ºMap
 	 * @param xml
 	 * @return java.util.Map
 	 * @throws DocumentException
 	 */
 	public static Map<String, Object> parseMap(String xml) throws DocumentException {
-		// XML×ª³Édoc¶ÔÏó
+		// XMLè½¬æˆdocå¯¹è±¡
 		Document doc = DocumentHelper.parseText(xml);
-		// »ñÈ¡¸ùÔªËØ£¬×¼±¸µİ¹é½âÎöÕâ¸öXMLÊ÷
+		// è·å–æ ¹å…ƒç´ ï¼Œå‡†å¤‡é€’å½’è§£æè¿™ä¸ªXMLæ ‘
 		Element root = doc.getRootElement();
 		Map<String, Object> map = new HashMap<>();
 		map.put(root.getName(), getValue(root));
@@ -50,18 +50,18 @@ public class XMLUtil {
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		if (root.elements() != null) {
-			// Èç¹ûµ±Ç°¸ú½ÚµãÓĞ×Ó½Úµã£¬ÕÒµ½×Ó½Úµã
+			// å¦‚æœå½“å‰è·ŸèŠ‚ç‚¹æœ‰å­èŠ‚ç‚¹ï¼Œæ‰¾åˆ°å­èŠ‚ç‚¹
 			List<Element> list = root.elements();
-			// ±éÀúÃ¿¸ö½Úµã
+			// éå†æ¯ä¸ªèŠ‚ç‚¹
 			for (Element e : list) {
 				if (e.elements().size() > 0) {
-					// µ±Ç°½Úµã²»Îª¿Õ£¬µİ¹é±éÀú×Ó½Úµã
+					// å½“å‰èŠ‚ç‚¹ä¸ä¸ºç©ºï¼Œé€’å½’éå†å­èŠ‚ç‚¹
 					Map<String, Object> childMap = getValue(e);
-					// ÖÃÈë¸¸½Úµãmap
+					// ç½®å…¥çˆ¶èŠ‚ç‚¹map
 					putAllowDuplicate(map, e.getName(), childMap);
 				}
 				if (e.elements().size() == 0) {
-					// Èç¹ûÎªÒ¶×Ó½Úµã£¬ÄÇÃ´Ö±½Ó°ÑÖµ·ÅÈë¸¸½Úµãmap
+					// å¦‚æœä¸ºå¶å­èŠ‚ç‚¹ï¼Œé‚£ä¹ˆç›´æ¥æŠŠå€¼æ”¾å…¥çˆ¶èŠ‚ç‚¹map
 					putAllowDuplicate(map, e.getName(), e.getTextTrim());
 				}
 			}
@@ -72,15 +72,15 @@ public class XMLUtil {
 
 	@SuppressWarnings("unchecked")
 	private static void putAllowDuplicate(Map<String, Object> map, String childName, Object child) {
-		// ÅĞ¶Ï·ÅÈëµÄkeyÊÇ·ñ´æÔÚ
+		// åˆ¤æ–­æ”¾å…¥çš„keyæ˜¯å¦å­˜åœ¨
 		if (map.containsKey(childName)) {
-			// ÅĞ¶ÏÒÑ´æÔÚµÄ¶ÔÏóÊÇ·ñÎªList
+			// åˆ¤æ–­å·²å­˜åœ¨çš„å¯¹è±¡æ˜¯å¦ä¸ºList
 			Object existChild = map.get(childName);
 			if (existChild instanceof List) {
-				// ¼ÓÈëÔ­ÓĞList
+				// åŠ å…¥åŸæœ‰List
 				((List<Object>) existChild).add(child);
 			} else if (existChild instanceof Map) {
-				// ½«ÒÑÓĞ¶ÔÏó×ªÎªList
+				// å°†å·²æœ‰å¯¹è±¡è½¬ä¸ºList
 				List<Object> childList = new ArrayList<>();
 				childList.add(existChild);
 				childList.add(child);
