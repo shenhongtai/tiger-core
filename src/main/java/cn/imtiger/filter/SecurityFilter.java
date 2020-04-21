@@ -22,7 +22,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 import cn.imtiger.util.data.ValidateUtil;
 
@@ -33,35 +32,34 @@ import cn.imtiger.util.data.ValidateUtil;
  */
 @Configuration
 @WebFilter(filterName = "securityFilter", urlPatterns = {"/*"}, description = "安全过滤器")
-@PropertySource(value = "classpath:app.properties", encoding = "UTF-8")
 public class SecurityFilter implements Filter {
 	private static Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
 
-	@Value("${imtiger.security.enabled:1}")
+	@Value("${app.security.enabled:1}")
 	private String enabled;
 
-	@Value("${imtiger.security.xssEnabled:1}")
+	@Value("${app.security.xssEnabled:1}")
 	private String xssEnabled;
 	
-	@Value("${imtiger.security.refererEnabled:1}")
+	@Value("${app.security.refererEnabled:1}")
 	private String refererEnabled;
 	
-	@Value("${imtiger.security.sqlInjectEnabled:1}")
+	@Value("${app.security.sqlInjectEnabled:1}")
 	private String sqlInjectEnabled;
 
-	@Value("${imtiger.security.httpMethodEnabled:1}")
+	@Value("${app.security.httpMethodEnabled:1}")
 	private String 	httpMethodEnabled;
 	
-	@Value("${imtiger.security.referer:}")
+	@Value("${app.security.referer:}")
 	private String trustedReferers;
 	
-	@Value("${imtiger.security.xss:}")
+	@Value("${app.security.xss:}")
 	private String xss;
 	
-	@Value("${imtiger.security.sql:}")
+	@Value("${app.security.sql:}")
 	private String sql;
 	
-	@Value("${imtiger.security.whiteListURLs:}")
+	@Value("${app.security.whiteListURLs:}")
 	private String whiteListURLs;
 
 	private List<Pattern> patterns = null;
