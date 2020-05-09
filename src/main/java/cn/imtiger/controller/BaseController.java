@@ -88,6 +88,12 @@ public abstract class BaseController {
     private String icpUrl;
     
     /**
+     * 
+     */
+    @Value("${app.corp:}")
+    private String corp;
+    
+    /**
      * 启用CSRF校验
      */
 	@Value("${app.security.enableCsrf:1}")
@@ -222,6 +228,7 @@ public abstract class BaseController {
 		model.put("version", version);
 		model.put("icp", icp);
 		model.put("icpUrl", icpUrl);
+		model.put("corp", corp);
 		model.put("csrf", TokenUtil.getTokenForRequest(request));
 
 		return viewPath;
@@ -240,7 +247,8 @@ public abstract class BaseController {
 			Object object = session.getAttribute(sessionKey);
 			// 如果值不为空，取出值转换为JSON格式对象，返回给调用方
 			if (object != null) {
-				jsonUser = JSONObject.parseObject((String) object);	
+				jsonUser = JSONObject.parseObject((String) object);
+				
 			}
 		}
 		return jsonUser;
