@@ -236,22 +236,31 @@ public abstract class BaseController {
 
 	/**
 	 * 获取当前登录用户的公共方法
+	 * @param <T>
+	 * @param clazz
 	 * @return
 	 */
-	public JSONObject getCurrentUser() {
+	public <T> T getCurrentUser(Class<T> clazz) {
 		// 获取请求里的session
 		HttpSession session = this.request.getSession();
-		JSONObject jsonUser = null;
+		T user = null;
 		if (ValidateUtil.isNotBlank(sessionKey) && session != null) {
 			// 如果session不为空，说明是登录状态，根据配置文件里的session名取值
 			Object object = session.getAttribute(sessionKey);
 			// 如果值不为空，取出值转换为JSON格式对象，返回给调用方
 			if (object != null) {
-				jsonUser = JSONObject.parseObject((String) object);
-				
+				user = JSONObject.toJavaObject(JSONObject.parseObject((String) object), clazz);
 			}
 		}
-		return jsonUser;
+		return user;
+	}
+
+	/**
+	 * 获取当前登录用户的公共方法
+	 * @return
+	 */
+	public JSONObject getCurrentUser() {
+		return getCurrentUser(JSONObject.class);
 	}
 	
 	/**
