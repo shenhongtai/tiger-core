@@ -1,6 +1,7 @@
 package cn.imtiger.util.data;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class CollectionUtil {
 	public static JSONObject toJSONObject(Map<String, Object> map) {
 		return JSONObject.parseObject(JSON.toJSONString(map));
 	}
-	
+
 	/**
 	 * 将List<Map>转换为JSONArray
 	 * @param map
@@ -33,6 +34,16 @@ public class CollectionUtil {
 	 */
 	public static JSONArray toJSONArray(List<Map<String, Object>> list) {
 		return JSONArray.parseArray(JSON.toJSONString(list));
+	}
+	
+	/**
+	 * 将List<Map>转换为JSONArray
+	 * @param map
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	public static String toJSONString(Collection collection) {
+		return JSON.toJSONString(collection);
 	}
 	
 	/**
