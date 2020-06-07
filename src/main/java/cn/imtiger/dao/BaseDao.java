@@ -1,4 +1,4 @@
-﻿package cn.imtiger.dao;
+package cn.imtiger.dao;
 
 import java.util.List;
 import java.util.Map;

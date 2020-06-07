@@ -1,4 +1,4 @@
-﻿package cn.imtiger.constant;
+package cn.imtiger.constant;
 
 /**
  * 状态常量

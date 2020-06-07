@@ -1,4 +1,4 @@
-﻿package cn.imtiger.constant;
+package cn.imtiger.constant;
 
 /**
  * HTTP头常量

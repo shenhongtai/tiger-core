@@ -217,9 +217,9 @@ public abstract class BaseController {
 	 */
 	public String getView(String viewPath, LinkedHashMap<String, Object> model) {
 		// 如果访问的页面不是login（登录）或reg（注册），判断一下是否有权限访问
-		if (!"login".equals(viewPath) && !"reg".equals(viewPath)) {
-			this.checkUserAuthority(viewPath);
-		}
+//		if (!"login".equals(viewPath) && !"reg".equals(viewPath)) {
+//			this.checkUserAuthority(viewPath);
+//		}
 		
 		// 如果可以访问，向页面返回系统路径、token、应用名称、描述、版本等信息，用于页面显示和请求
 		model.put("base", request.getContextPath());
